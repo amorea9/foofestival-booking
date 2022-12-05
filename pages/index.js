@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
-import Header from "./components/Header";
-import Splash from "./components/Splash";
-import Nav from "./components/Nav";
-import Headliners from "./components/Headliners";
-import Lineup from "./components/Lineup";
-import Footer from "./components/Footer";
+import Header from "../components/Header";
+import Splash from "../components/Splash";
+import Nav from "../components/Nav";
+import Headliners from "../components/Headliners";
+import Lineup from "../components/Lineup";
+import Footer from "../components/Footer";
 
 
 export default function Home() {
