@@ -1,13 +1,12 @@
-import '../styles/globals.css'
-import Layout from './Layout'
-
+import "../styles/globals.scss";
+import Layout from "../components/Layout.jsx";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout navData={navData}>
-  <Component {...pageProps} />
-  </Layout>
-  )
+    <Layout>
+      <Component />
+    </Layout>
+  );
 }
 
-export default MyApp
+export default MyApp;
