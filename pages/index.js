@@ -8,13 +8,12 @@ import Footer from "../components/Footer";
 export default function Home() {
   return (
     <>
-      <div>
-        <Head>
-          <title>The Official FootFest Homepage</title>
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        </Head>
-      </div>
+      <Head>
+        <title>FOOFEST | The best damned festival</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Nav />
+      <h1>Test</h1>
       <Splash />
       <BigNames />
       <Headliners />

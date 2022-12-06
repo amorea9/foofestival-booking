@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Button from "./UI-components/Button";
 
 function Nav() {
   return (
-    <div>Nav</div>
-  )
+    <nav>
+      <div>Logo</div>
+      <Button buttonType={"primary"} buttonText={"Get tickets"}></Button>
+    </nav>
+  );
 }
 
-export default Nav
+export default Nav;
