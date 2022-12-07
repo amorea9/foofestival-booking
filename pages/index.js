@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Splash from "../components/Splash";
 import Nav from "../components/Nav";
+import Lineup from "../components/Lineup";
 import Headliners from "../components/Headliners";
-import BigNames from "../components/BigNames";
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -14,8 +14,8 @@ export default function Home() {
       </Head>
       <Nav />
       <Splash />
-      <BigNames />
       <Headliners />
+      <Lineup />
       <Footer />
     </>
   );

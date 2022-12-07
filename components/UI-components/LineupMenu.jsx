@@ -1,6 +1,6 @@
 import React from "react";
 
-function HeadlinersMenu() {
+function LineupMenu() {
   return (
     <>
       <div>
@@ -23,4 +23,4 @@ function HeadlinersMenu() {
   );
 }
 
-export default HeadlinersMenu;
+export default LineupMenu;
