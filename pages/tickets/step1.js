@@ -1,5 +1,5 @@
 import React from "react";
-import BookingWindow from "../../components/BookingWindow";
+import OrderInterface from "../../components/OrderInterface";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
 import OrderOverview from "../../components/OrderOverview";
@@ -12,7 +12,7 @@ function step1() {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <Nav />
-    <BookingWindow />
+    <OrderInterface />
     <OrderOverview />
     <Footer />
   </>;
