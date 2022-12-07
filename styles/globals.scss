@@ -41,7 +41,8 @@ h4 {
 h1 {
   font-family: var(--h1-font);
   font-weight: bold;
-  // set size, line height etc here
+  font-size: 11rem;
+  line-height: 70%;
 }
 
 h2 {
@@ -61,4 +62,32 @@ h5 {
   font-size: 1rem;
   color: var(--grey);
   font-weight: 400;
+}
+
+
+
+
+
+.SplashContainer {
+  height: 85vh;
+  width: 100vw;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  //    ALT
+//   background-image: url("../public/assets/Bases-Purple.png");
+//   background-position: -100% 55%;
+//   background-size: 115%;
+  //insert alt from here
+  background-image: url("../public/assets/fullImageWGrainL.webp");
+  background-position: 20% 65%;
+  background-size: 160%;
+    //insert alt to here
+  background-repeat: no-repeat;
+    h1 {
+      display: block;
+      min-width: 780px;
+      text-align: center;
+      mix-blend-mode: exclusion;
+    }
 }
