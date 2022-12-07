@@ -3,6 +3,7 @@ import React from "react";
 function LineupMenu() {
   return (
     <>
+      <h2>Lineup</h2>
       <div>
         <label htmlFor="filter">Filter</label>
         <select name="filter" id="filter">

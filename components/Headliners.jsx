@@ -3,11 +3,14 @@ import HeadlinersCard from "./UI-components/HeadlinersCard.jsx";
 
 function Headliners() {
   return (
-    <div>
-      <HeadlinersCard />
-      <HeadlinersCard />
-      <HeadlinersCard />
-    </div>
+    <>
+      <h2>Headliners</h2>
+      <div>
+        <HeadlinersCard />
+        <HeadlinersCard />
+        <HeadlinersCard />
+      </div>
+    </>
   );
 }
 
