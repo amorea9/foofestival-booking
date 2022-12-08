@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Kanit:wght@700&display=swap");
 
+// SPLIT EVERYTHING INTO SASS IMPORTS LATER
+
 // SASS VARIABLES
 // fonts
 $h1-font: "Kanit", sans-serif;
@@ -47,6 +49,9 @@ h1 {
 
 h2 {
   font-size: 3rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
 }
 
 h3 {
@@ -83,6 +88,7 @@ nav {
   padding: 0.5rem;
   padding-inline: 1rem;
   text-transform: uppercase;
+  // max-width: 10rem;
 }
 
 // SPLASH/HERO
@@ -95,6 +101,7 @@ nav {
   margin-top: -5rem;
   margin-bottom: 2rem;
   border: none;
+  // i'm annoyed with this, come back to it later
 
   h1 {
     font-size: 4rem;
@@ -109,4 +116,97 @@ nav {
 section {
   border-top: $border;
   // border-bottom: $border;
+}
+
+// BOXES
+.box {
+  border: $border;
+  // margin: 1rem;
+}
+
+// HEADLINERS
+
+.headliners-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  padding-inline: 1rem;
+  padding-bottom: 2rem;
+  // this doesn't work great on small phone sizes, try to fix later
+}
+
+.headliner-box {
+  width: fit-content;
+  height: fit-content;
+
+  .headliner-img {
+    aspect-ratio: 1/1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .headliner-card-titles {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  h4 {
+    color: $grey;
+  }
+
+  p {
+    margin: 1rem;
+  }
+}
+
+// LINEUP
+
+.lineup-menu {
+  padding-bottom: 2rem;
+  // make fixed menu on desktop
+}
+
+.lineup-menu-actions {
+  display: grid;
+  padding-inline: 1rem;
+
+  label {
+    text-transform: uppercase;
+  }
+
+  select {
+    color: $white;
+    background-color: $black;
+    border: $border;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  option {
+    text-transform: uppercase;
+    // not working for some reason?
+  }
+}
+
+.lineup-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  padding: 1rem;
+  gap: 1rem;
+
+  h5 {
+    color: $orange;
+    text-transform: uppercase;
+  }
+
+  .lineup-card {
+    border: $border;
+  }
 }

@@ -1,14 +1,17 @@
 import React from "react";
+import Image from "next/image";
 
-function HeadlinersCard() {
+function HeadlinersCard({ src, bandName, day, descr, alt }) {
   return (
-    <div>
-      <img src="#" alt="Band picture" />
-      <h3>Band name</h3>
-      <h4>Day X</h4>
-      <p>Description goes here</p>
+    <article className="box headliner-box">
+      <Image className="headliner-img" src={src} alt={alt} />
+      <div className="headliner-card-titles">
+        <h3>{bandName}</h3>
+        <h4>{day}</h4>
+      </div>
+      <p>{descr}</p>
       <div>Spotify embed here</div>
-    </div>
+    </article>
   );
 }
 
