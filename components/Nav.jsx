@@ -5,7 +5,7 @@ function Nav() {
   return (
     <nav>
       <div>Logo</div>
-      <Button buttonType={"primary"} buttonText={"Get tickets"}></Button>
+      <Button href={"/tickets/step1"} buttonType={"primary"} buttonText={"Get tickets"}></Button>
     </nav>
   );
 }
