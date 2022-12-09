@@ -9,9 +9,6 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
     </>
-    // <Layout navData={navData}>
-    //   <Component {...pageProps} />
-    // </Layout>
   );
 }
 
