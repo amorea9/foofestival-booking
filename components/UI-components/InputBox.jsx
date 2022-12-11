@@ -6,7 +6,7 @@ import React from "react";
 
 function InputBox(props) {
   return (
-    <div className="input-box">
+    <div className="input-box box">
       <div>
         <h3>{props.title}</h3>
         <h4>{props.subtitle}</h4>
@@ -15,6 +15,7 @@ function InputBox(props) {
       <div>
         <h3>{props.price}</h3>
         {/* insert input type depending on props.type */}
+        <input type="number" min="0" max="5" step="1" value="0" />
       </div>
     </div>
   );
