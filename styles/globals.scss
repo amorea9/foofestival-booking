@@ -228,7 +228,7 @@ section {
   }
 }
 
-// BOOKING STEPS
+// BOOKING STEPS - ORDER INTERFACE
 
 .order-interface {
   margin-top: 1rem;
@@ -253,4 +253,30 @@ select {
   margin-top: 1rem;
   font-size: 1.5rem;
   width: 100%;
+}
+
+// BOOKING STEPS - ORDER OVERVIEW
+
+.order-overview {
+  padding: 1rem;
+
+  section {
+    border-color: $grey;
+    padding: 0.5rem;
+    padding-inline: 0;
+  }
+
+  .overview-item {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+// BOOKING STEPS - BUTTONS
+
+.booking-steps-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  margin-inline: 2rem;
 }
