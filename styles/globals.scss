@@ -14,6 +14,8 @@ $orange: #ff802c;
 $purple: #6671e3;
 // borders
 $border: 1.5px solid $white;
+// drop shadow
+$shadow: 6px 6px $orange;
 
 * {
   box-sizing: border-box;
@@ -48,19 +50,18 @@ h1 {
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
-  margin-left: 0.5rem;
 }
 
 h3 {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   color: $orange;
 }
 
 h4 {
-  font-size: 1.75rem;
+  font-size: 1.6rem;
 }
 
 h5 {
@@ -74,12 +75,20 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding-inline: 1rem;
+  margin-top: 0.5rem;
 
   .logo {
-    max-width: 8rem;
+    max-width: 10rem;
     height: auto;
   }
+}
+
+// FOOTER
+footer {
+  display: grid;
+  padding: 2rem;
+  border-top: $border;
 }
 
 // BUTTONS
@@ -115,7 +124,7 @@ nav {
 // SECTIONS
 section {
   border-top: $border;
-  // border-bottom: $border;
+  padding-bottom: 2rem;
 }
 
 // BOXES
@@ -126,14 +135,15 @@ section {
 
 // HEADLINERS
 
+.headliners {
+  padding-inline: 2rem;
+}
+
 .headliners-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 1rem;
   justify-items: center;
-  padding-inline: 1rem;
-  padding-bottom: 2rem;
-  // this doesn't work great on small phone sizes, try to fix later
 }
 
 .headliner-box {
@@ -168,12 +178,12 @@ section {
 
 .lineup-menu {
   padding-bottom: 2rem;
+  padding-inline: 2rem;
   // make fixed menu on desktop
 }
 
 .lineup-menu-actions {
   display: grid;
-  padding-inline: 1rem;
 
   label {
     text-transform: uppercase;
@@ -199,6 +209,7 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   padding: 1rem;
+  padding-inline: 2rem;
   gap: 1rem;
 
   h5 {
@@ -208,5 +219,20 @@ section {
 
   .lineup-card {
     border: $border;
+    padding: 1rem;
+    box-shadow: $shadow;
   }
+
+  .lineup-card-titles {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+// BOOKING STEPS
+
+.order-interface {
+  margin-top: 1rem;
+  padding-inline: 1rem;
+  padding-top: 0.5rem;
 }

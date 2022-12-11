@@ -10,13 +10,13 @@ function step3() {
 
   return (
     <>
-      <div className="order-interface">
+      <section className="order-interface">
         <StepIndicator />
         <h2>Personal information</h2>
         <h5>We need some details about each person for the tickets.</h5>
         <InputPersonalInfo />
         <InputPersonalInfo />
-      </div>
+      </section>
       <OrderOverview />
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step2"} />

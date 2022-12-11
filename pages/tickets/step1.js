@@ -8,7 +8,7 @@ import Button from "../../components/UI-components/Button";
 function step1() {
   return (
     <>
-      <div className="order-interface">
+      <section className="order-interface">
         <StepIndicator />
         <h2>Select your tickets</h2>
         <h5>Note: There is a limit of 5 tickets per customer.</h5>
@@ -17,7 +17,7 @@ function step1() {
         <h2>Select your camp area</h2>
         <h5>Each ticket counts for one space in a camp area.</h5>
         <InputSelect optionOne={"Area 1"} optionTwo={"Area 2"} />
-      </div>
+      </section>
       <OrderOverview />
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} />

@@ -10,7 +10,7 @@ function step2() {
 
   return (
     <>
-      <div className="order-interface">
+      <section className="order-interface">
         <StepIndicator />
         <h2>Tent options</h2>
         <h5>These are optional add-ons to improve your festival experience.</h5>
@@ -19,7 +19,7 @@ function step2() {
         <p>
           <strong>NOTE:</strong> A mandatory booking fee of 99,- applies for each order.
         </p>
-      </div>
+      </section>
       <OrderOverview />
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step1"} />
