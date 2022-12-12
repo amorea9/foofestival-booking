@@ -5,6 +5,10 @@ import React from "react";
 // 2. CHECKBOX - checkboxes for add-on purchases
 
 function InputBox(props) {
+  if ((props.type = "amount")) {
+  }
+  if ((props.type = "checkbox")) {
+  }
   return (
     <div className="input-box box">
       <div>

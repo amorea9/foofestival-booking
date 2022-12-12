@@ -5,6 +5,9 @@ import InputBox from "../../components/UI-components/InputBox";
 import InputSelect from "../../components/UI-components/InputSelect";
 import Button from "../../components/UI-components/Button";
 
+// 1. fetch area data (how many spaces there are)
+// 2. compare selected amount of tickets to area space - show area with enough space, if none have enough space, show feedback
+
 function step1() {
   return (
     <>
