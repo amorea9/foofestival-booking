@@ -12,7 +12,7 @@ import Button from "../../components/UI-components/Button";
 function step1(props) {
   console.log(props)
   return (
-    <>
+    <div className="order-container">
       <section className="order-interface">
         <StepIndicator step={1}/>
         <h2>Select your tickets</h2>
@@ -28,7 +28,7 @@ function step1(props) {
         <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} />
         <Button buttonType={"primary"} buttonText={"Select camp options"} href={"/tickets/step2"} />
       </div>
-    </>
+      </div>
   );
 }
 
