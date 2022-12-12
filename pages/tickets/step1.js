@@ -11,7 +11,6 @@ import Button from "../../components/UI-components/Button";
 
 function step1(props) {
   console.log(props)
-
   return (
     <>
       <section className="order-interface">
@@ -24,7 +23,7 @@ function step1(props) {
         <h5>Each ticket counts for one space in a camp area.</h5>
         <InputDrop optionOne={"Area 1"} optionTwo={"Area 2"} />
       </section>
-      <OrderOverview />
+      <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} />
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} />
         <Button buttonType={"primary"} buttonText={"Select camp options"} href={"/tickets/step2"} />
