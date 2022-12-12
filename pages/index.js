@@ -1,22 +1,13 @@
-import Head from "next/head";
 import Splash from "../components/Splash";
-import Nav from "../components/Nav";
 import Lineup from "../components/Lineup";
 import Headliners from "../components/Headliners";
-import Footer from "../components/Footer";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>FOOFEST | The best damned festival</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <Nav />
       <Splash />
       <Headliners />
       <Lineup />
-      <Footer />
     </>
   );
 }

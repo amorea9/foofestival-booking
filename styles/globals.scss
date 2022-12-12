@@ -1,6 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Kanit:wght@700&display=swap");
 
+// SPLIT EVERYTHING INTO SASS IMPORTS LATER
+
+// SASS VARIABLES
+// fonts
+$h1-font: "Kanit", sans-serif;
+// colours
+$black: #101014;
+$white: #fbfafa;
+$grey: #8b8b8b;
+$orange: #ff802c;
+$purple: #6671e3;
+// borders
+$border: 1.5px solid $white;
+// drop shadow
+$shadow: 6px 6px $orange;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,20 +24,9 @@
   font-family: "Inter", sans-serif;
 }
 
-:root {
-  // fonts
-  --h1-font: "Kanit", sans-serif;
-  // colours
-  --black: #101014;
-  --white: #fbfafa;
-  --grey: #8b8b8b;
-  --orange: #ff802c;
-  --purple: #6671e3;
-}
-
 html {
-  background-color: var(--black);
-  color: var(--white);
+  background-color: $black;
+  color: $white;
   font-size: 1em;
 }
 
@@ -39,34 +44,32 @@ h4 {
 }
 
 h1 {
-  font-family: var(--h1-font);
+  font-family: $h1-font;
   font-weight: bold;
   font-size: 11rem;
   line-height: 70%;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
 }
 
 h3 {
-  font-size: 2.5rem;
-  color: var(--orange);
+  font-size: 1.75rem;
+  color: $orange;
 }
 
 h4 {
-  font-size: 1.75rem;
+  font-size: 1.6rem;
 }
 
 h5 {
   font-size: 1rem;
-  color: var(--grey);
+  color: $grey;
   font-weight: 400;
 }
-
-
-
-
 
 .SplashContainer {
   height: 85vh;
@@ -137,5 +140,196 @@ h5 {
       font-size: 4.5rem;
       overflow:hidden;
     }
+
+// NAVIGATION
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1rem;
+  margin-top: 0.5rem;
+
+  .logo {
+    max-width: 10rem;
+    height: auto;
+  }
+}
+
+// FOOTER
+footer {
+  display: grid;
+  padding: 2rem;
+  border-top: $border;
+}
+
+// BUTTONS
+.button {
+  border: $border;
+  padding: 0.5rem;
+  padding-inline: 1rem;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  // max-width: 17rem;
+  text-align: center;
+}
+
+.booking-steps-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  margin-inline: 2rem;
+  align-items: center;
+}
+
+// SECTIONS
+section {
+  border-top: $border;
+  padding-bottom: 2rem;
+}
+
+// BOXES
+.box {
+  border: $border;
+}
+
+// HEADLINERS
+
+.headliners {
+  padding-inline: 2rem;
+}
+
+.headliners-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+.headliner-box {
+  width: fit-content;
+  height: fit-content;
+
+  .headliner-img {
+    aspect-ratio: 1/1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .headliner-card-titles {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  h4 {
+    color: $grey;
+  }
+
+  p {
+    margin: 1rem;
+  }
+}
+
+// LINEUP
+
+.lineup-menu {
+  padding-bottom: 2rem;
+  padding-inline: 2rem;
+  // make fixed menu on desktop
+}
+
+.lineup-menu-actions {
+  display: grid;
+
+  label {
+    text-transform: uppercase;
+  }
+
+  select {
+    color: $white;
+    background-color: $black;
+    border: $border;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  option {
+    text-transform: uppercase;
+    // not working for some reason?
+  }
+}
+
+.lineup-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  padding: 1rem;
+  padding-inline: 2rem;
+  gap: 1rem;
+
+  h5 {
+    color: $orange;
+    text-transform: uppercase;
+  }
+
+  .lineup-card {
+    border: $border;
+    padding: 1rem;
+    box-shadow: $shadow;
+  }
+
+  .lineup-card-titles {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+// BOOKING STEPS - ORDER INTERFACE
+
+.order-interface {
+  margin-top: 1rem;
+  padding-inline: 1rem;
+  padding-top: 0.5rem;
+}
+
+.input-box {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  background-color: $black;
+  color: $white;
+  border: $border;
+  padding: 0.5rem;
+  padding-inline: 1rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+// BOOKING STEPS - ORDER OVERVIEW
+
+.order-overview {
+  padding: 1rem;
+
+  section {
+    border-color: $grey;
+    padding: 0.5rem;
+    padding-inline: 0;
+  }
+
+  .overview-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-inline: 0;
   }
 }

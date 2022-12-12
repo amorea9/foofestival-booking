@@ -4,15 +4,17 @@ import LineupCard from "./UI-components/LineupCard";
 
 function Lineup() {
   return (
-    <section>
+    <section className="lineup">
       <LineupMenu />
-      <div>
-        <h3>Bands</h3>
-        <h4>Showing all</h4>
+      <section className="lineup-list">
+        <div>
+          <h4>Bands</h4>
+          <h5>Showing all</h5>
+        </div>
         <LineupCard />
         <LineupCard />
         <LineupCard />
-      </div>
+      </section>
     </section>
   );
 }

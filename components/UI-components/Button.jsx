@@ -1,7 +1,12 @@
 import React from "react";
+import Link from "next/link";
 
-function Button(props) {
-  return <div className={props.buttonType}>{props.buttonText}</div>;
+function Button({ buttonType, buttonText, href }) {
+  return (
+    <Link href={href} className={(buttonType, "button")}>
+      {buttonText}
+    </Link>
+  );
 }
 
 export default Button;

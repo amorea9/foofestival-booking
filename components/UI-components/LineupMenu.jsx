@@ -2,11 +2,12 @@ import React from "react";
 
 function LineupMenu() {
   return (
-    <>
+    <div className="lineup-menu">
       <h2>Lineup</h2>
-      <div>
+      <div className="lineup-menu-actions">
         <label htmlFor="filter">Filter</label>
         <select name="filter" id="filter">
+          <option value="all">All</option>
           <option value="rock">Rock</option>
           <option value="metal">Metal</option>
           <option value="alternative">Alternative</option>
@@ -20,7 +21,7 @@ function LineupMenu() {
 
       <h5>This is a subheading</h5>
       <p>This is a paragraph</p>
-    </>
+    </div>
   );
 }
 
