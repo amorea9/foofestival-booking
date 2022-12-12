@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Layout>
-        <Component {...pageProps} />
+        <Component {...pageProps} orderInfo={orderInfo} setOrderInfo={setOrderInfo} />
       </Layout>
     </>
   );

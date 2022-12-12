@@ -8,7 +8,7 @@ import Button from "../../components/UI-components/Button";
 // 1. fetch area data (how many spaces there are)
 // 2. compare selected amount of tickets to area space - show area with enough space, if none have enough space, show feedback
 
-function step1() {
+function step1(props) {
   return (
     <>
       <section className="order-interface">
@@ -21,7 +21,7 @@ function step1() {
         <h5>Each ticket counts for one space in a camp area.</h5>
         <InputSelect optionOne={"Area 1"} optionTwo={"Area 2"} />
       </section>
-      <OrderOverview />
+      <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} />
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} />
         <Button buttonType={"primary"} buttonText={"Select camp options"} href={"/tickets/step2"} />

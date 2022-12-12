@@ -338,6 +338,8 @@ select {
 
 .order-overview {
   padding: 1rem;
+  border: $border;
+  border-inline: none;
 
   section {
     border-color: $grey;
