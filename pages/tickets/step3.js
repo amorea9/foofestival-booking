@@ -7,11 +7,12 @@ import InputPersonalInfo from "../../components/UI-components/InputPersonalInfo"
 function step3() {
   // const ticketAmount = amount of requested tickets from previous step
   // const setupPrice = base fee + fee for each additional person
+  
 
   return (
     <>
       <section className="order-interface">
-        <StepIndicator />
+        <StepIndicator step={3}/>
         <h2>Personal information</h2>
         <h5>We need some details about each person for the tickets.</h5>
         <InputPersonalInfo />

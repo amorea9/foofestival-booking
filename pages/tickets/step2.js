@@ -21,6 +21,8 @@ if (tickets <= 2) {
   setUpPrice = 598
 } else if (tickets === 5) {
   setUpPrice = 798;
+} else {
+  setUpPrice = 299;
 }
 
   
@@ -29,7 +31,7 @@ if (tickets <= 2) {
   return (
     <>
       <section className="order-interface">
-        <StepIndicator />
+        <StepIndicator step={2}/>
         <h2>Tent options</h2>
         <h5>These are optional add-ons to improve your festival experience.</h5>
         <InputCheck title={"We can set up your tent(s)"} name={"TentSetup"} subtitle={props.totalTickets} description={"Tents are included in price."} price={setUpPrice} />

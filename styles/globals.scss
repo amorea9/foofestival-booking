@@ -211,8 +211,20 @@ section {
   border: $border;
 }
 
-// HEADLINERS
+// Accordions
+.accordion {
+  border: $border;
+}
 
+.accordion__heading {
+  //title box styling here
+}
+
+.accordion__panel {
+  //drop down box styling here
+}
+
+// HEADLINERS
 .headliners {
   padding-inline: 2rem;
 }

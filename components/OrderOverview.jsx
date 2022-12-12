@@ -18,17 +18,17 @@ function OrderOverview(props) {
       <h5>Your tickets are reserved for 5 minutes.</h5>
 
       {/* SELECTED TICKETS */}
-      {props.orderInfo.totalTickets != 0 && (
+      {props.totalTickets != 0 && (
         <section className="order-overview-tickets">
           {" "}
-          {props.orderInfo.regTickets > 0 && (
+          {props.regTickets > 0 && (
             <div className="overview-item ticket">
               <h4>Regular ticket</h4>
               <h4>Amount</h4>
               <h4>Price</h4>
             </div>
           )}
-          {props.orderInfo.vipTickets > 0 && (
+          {props.vipTickets > 0 && (
             <div className="overview-item ticket">
               <h4>Regular ticket</h4>
               <h4>Amount</h4>
@@ -39,23 +39,23 @@ function OrderOverview(props) {
       )}
 
       {/* SELECTED CAMP AREA */}
-      {props.orderInfo.selectedArea != "" && (
+      {props.selectedArea != "" && (
         <section className="order-overview-camp overview-item">
-          <h4>{props.orderInfo.selectedArea}</h4>
+          <h4>{props.selectedArea}</h4>
         </section>
       )}
 
       {/* SELECTED ADD-ONS */}
-      {props.orderInfo.tentService == true ||
-        (props.orderInfo.greenCamping == true && (
+      {props.tentService == true ||
+        (props.greenCamping == true && (
           <section className="order-overview-addons">
-            {props.orderInfo.tentService == true && (
+            {props.tentService == true && (
               <div className="overview-item">
                 <h4>Tent set up</h4>
                 <h4>Price</h4>
               </div>
             )}
-            {props.orderInfo.greenCamping == true && (
+            {props.greenCamping == true && (
               <div className="overview-item">
                 <h4>Green camping</h4>
                 <h4>Price</h4>

@@ -14,7 +14,7 @@ function step1(props) {
   return (
     <>
       <section className="order-interface">
-        <StepIndicator />
+        <StepIndicator step={1}/>
         <h2>Select your tickets</h2>
         <h5>Note: There is a limit of 5 tickets per customer.</h5>
         <InputCounter title={"Regular"} name={"RegTicket"} subtitle={"All days"} description={"Access to concerts and vendors."} price={"799,-"}/>
