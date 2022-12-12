@@ -1,6 +1,6 @@
 import React from "react";
 
-function InputSelect(props) {
+function InputDrop(props) {
   return (
     <>
       <select name="select" id="select">
@@ -11,4 +11,4 @@ function InputSelect(props) {
   );
 }
 
-export default InputSelect;
+export default InputDrop;
