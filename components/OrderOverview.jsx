@@ -17,7 +17,7 @@ function OrderOverview() {
           <h4>Price</h4>
         </div>
       </section>
-      <section className="order-overview-camp">
+      <section className="order-overview-camp overview-item">
         <h4>Camp name</h4>
       </section>
       <section className="order-overview-addons">
@@ -35,7 +35,7 @@ function OrderOverview() {
         <h4>x1</h4>
         <h4>99,-</h4>
       </section>
-      <section className="order-overview-total">
+      <section className="order-overview-total overview-item">
         <h4>Total</h4>
         <h4>XXX,-</h4>
       </section>

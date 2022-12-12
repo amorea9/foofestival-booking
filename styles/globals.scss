@@ -97,7 +97,17 @@ footer {
   padding: 0.5rem;
   padding-inline: 1rem;
   text-transform: uppercase;
-  // max-width: 10rem;
+  font-size: 1.3rem;
+  // max-width: 17rem;
+  text-align: center;
+}
+
+.booking-steps-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  margin-inline: 2rem;
+  align-items: center;
 }
 
 // SPLASH/HERO
@@ -269,14 +279,7 @@ select {
   .overview-item {
     display: flex;
     justify-content: space-between;
+    padding: 1rem;
+    padding-inline: 0;
   }
-}
-
-// BOOKING STEPS - BUTTONS
-
-.booking-steps-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem;
-  margin-inline: 2rem;
 }
