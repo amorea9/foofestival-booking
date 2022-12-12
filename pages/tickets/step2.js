@@ -1,12 +1,30 @@
 import React from "react";
 import OrderOverview from "../../components/OrderOverview";
 import StepIndicator from "../../components/UI-components/StepIndicator";
-import InputBox from "../../components/UI-components/InputBox";
+import InputCheck from "../../components/UI-components/InputCheck";
 import Button from "../../components/UI-components/Button";
 
-function step2() {
+let setUpPrice
+
+function step2(props) {
   // const ticketAmount = amount of requested tickets from previous step
-  // const setupPrice = base fee + fee for each additional person
+const tickets = props.totalTickets;
+  // Optional, pay to have the crew set up X tents for you.
+// 2 person tent (including the tent) 299,-
+// 3 person tent (including the tent) 399,-
+// The number of tents must match the number of people in the group (number of tickets).
+if (tickets <= 2) {
+  setUpPrice = 299
+} else if (tickets === 3) {
+  setUpPrice = 399
+} else if (tickets === 4) {
+  setUpPrice = 598
+} else if (tickets === 5) {
+  setUpPrice = 798;
+}
+
+  
+  
 
   return (
     <>
@@ -14,8 +32,8 @@ function step2() {
         <StepIndicator />
         <h2>Tent options</h2>
         <h5>These are optional add-ons to improve your festival experience.</h5>
-        <InputBox type={"checkbox"} title={"We can set up your tent"} subtitle={ticketAmount} description={"Tent is included in price."} price={setupPrice} />
-        <InputBox type={"checkbox"} title={"Green camping"} subtitle={"Sustainable tent"} description={"Tent made from recycled materials."} price={"299,-"} />
+        <InputCheck title={"We can set up your tent(s)"} name={"TentSetup"} subtitle={props.totalTickets} description={"Tents are included in price."} price={setUpPrice} />
+        <InputCheck title={"Green camping"} name={"TentGreen"} subtitle={"Sustainable tent(s)"} description={"Tent made from recycled materials."} price={249}/>
         <p>
           <strong>NOTE:</strong> A mandatory booking fee of 99,- applies for each order.
         </p>
