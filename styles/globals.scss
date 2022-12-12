@@ -70,7 +70,7 @@ h5 {
 
 .SplashContainer {
   height: 85vh;
-  width: 100vw;
+  max-width:fit-content;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -78,7 +78,6 @@ h5 {
   overflow-x: hidden;
     h1 {
       display: block;
-      min-width: 780px;
       text-align: center;
       mix-blend-mode: exclusion;
     }
@@ -94,13 +93,14 @@ h5 {
   position: absolute;
   height: 200vh;
   width: 200vw;
-  background-image: url("../public/assets/fullImageWOGrain3.webp");
+  background-image: url("../public/assets/fullImageWOGrain.webp");
   background-position: 20% 65%;
   background-size: 60%;
+  background-repeat:no-repeat;
     //insert alt to here
   z-index: -1;
   animation: orbit 10s infinite linear;
-  transform-origin: 72vw 90vh;
+  transform-origin: 73vw 93vh;
 }
 
 .SplashContainer::after {
@@ -127,4 +127,15 @@ h5 {
 @keyframes orbit {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+//mobile media query
+
+@media screen and (max-width: 830px) {
+  .SplashContainer {
+    h1 {
+      font-size: 4.5rem;
+      overflow:hidden;
+    }
+  }
 }
