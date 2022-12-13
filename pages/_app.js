@@ -15,23 +15,25 @@ function MyApp({ Component, pageProps }) {
     timedOut: false,
   });
 
+  function setTickets(ticketAmount, vipAmount, regAmount) {
+    setOrderInfo({ ...orderInfo, totalTickets: ticketAmount, vipTickets: vipAmount, regTickets: regAmount });
+  }
+
+  function setArea(area) {
+    setOrderInfo({ ...orderInfo, selectedArea: area });
+  }
+
+  function setAddOns(tentChoice, greenChoice) {
+    setOrderInfo({ ...orderInfo, tentService: tentChoice, greenCamping: greenChoice });
+  }
+
   return (
     <>
       <Layout>
-        <Component {...pageProps} orderInfo={orderInfo} setOrderInfo={setOrderInfo} />
+        <Component {...pageProps} orderInfo={orderInfo} setOrderInfo={setOrderInfo} setTickets={setTickets} setAddOns={setAddOns} setArea={setArea} />
       </Layout>
     </>
   );
 }
 
 export default MyApp;
-
-/* export default function MyApp({ Component, pageProps, navData }) {
-  return (
-    <>
-      <Layout navData={navData}>
-        <Component {...pageProps} />
-      </Layout>
-    </>
-  );
-} */
