@@ -204,7 +204,9 @@ footer {
 
 //INPUT FIELDS 
 .react-numeric-input {
+  max-width: 30%;
   input {
+    max-width: 100%;
   height: 100%;
   }
 }
