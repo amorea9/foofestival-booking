@@ -5,6 +5,7 @@ import InputCheck from "../../components/UI-components/InputCheck";
 import Button from "../../components/UI-components/Button";
 
 let setUpPrice
+let tentSize = ""
 
 function step2(props) {
   // const ticketAmount = amount of requested tickets from previous step
@@ -15,27 +16,32 @@ const tickets = props.totalTickets;
 // The number of tents must match the number of people in the group (number of tickets).
 if (tickets <= 2) {
   setUpPrice = 299
+  tentSize = "2-person tent"
 } else if (tickets === 3) {
   setUpPrice = 399
+  tentSize = "3-person tent"
 } else if (tickets === 4) {
   setUpPrice = 598
+  tentSize = "2 x 2-person tents"
 } else if (tickets === 5) {
   setUpPrice = 798;
+  tentSize = "1 x 2 person tent & 1 x 3 person tent"
 } else {
   setUpPrice = 299;
+  tentSize = "2-person tent"
 }
 
   
   
 
   return (
-    <>
+    <div className="order-container">
       <section className="order-interface">
         <StepIndicator step={2}/>
         <h2>Tent options</h2>
         <h5>These are optional add-ons to improve your festival experience.</h5>
-        <InputCheck title={"We can set up your tent(s)"} name={"TentSetup"} subtitle={props.totalTickets} description={"Tents are included in price."} price={setUpPrice} />
-        <InputCheck title={"Green camping"} name={"TentGreen"} subtitle={"Sustainable tent(s)"} description={"Tent made from recycled materials."} price={249}/>
+        <InputCheck title={"We can set up your tent(s)"} name={"TentSetup"} subtitle={tentSize} description={"Tents are included in price."} price={setUpPrice} />
+        <InputCheck title={"Green camping"} name={"TentGreen"} subtitle={"Sustainable tents"} description={"Tent made from recycled materials."} price={249}/>
         <p>
           <strong>NOTE:</strong> A mandatory booking fee of 99,- applies for each order.
         </p>
@@ -45,7 +51,7 @@ if (tickets <= 2) {
         <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step1"} />
         <Button buttonType={"primary"} buttonText={"Continue to details"} href={"/tickets/step3"} />
       </div>
-    </>
+    </div>
   );
 }
 

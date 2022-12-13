@@ -23,11 +23,12 @@ function InputPersonalInfo(props) {
         <AccordionItemHeading>
           <AccordionItemButton>
           <h2>Person #</h2>
+          <h3>Regular ticket</h3>
           </AccordionItemButton>
         </AccordionItemHeading>
+
         <AccordionItemPanel>
-        <div>
-      <h2>Regular ticket</h2>
+        <div className="accordion-field">
         <label>
           First name
           <input type="text" name="firstName" placeholder="John" onBlur={onChange}/>
