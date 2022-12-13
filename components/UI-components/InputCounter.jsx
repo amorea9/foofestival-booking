@@ -16,11 +16,7 @@ function InputCounter(props) {
           </div>
           <div>
             <h3>{props.price}</h3>
-            <NumericInput min="0" max="5" step="1" value="0" mobile onChange={handleChange} 
-            style={{
-              btnUp: {backgroundColor: 'rgba(255,255,255,1)'},
-              "&hover": {backgroundColor: 'rgba(255,255,255,1)'},
-            }}/>
+            <NumericInput min="0" max="5" step="1" value="0" mobile onChange={handleChange} />
 
             {/* default value of input must be value={basket.ticketamount} or something} */}
           </div>
