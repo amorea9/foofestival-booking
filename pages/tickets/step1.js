@@ -22,9 +22,9 @@ function step1(props) {
   // function setTickets(ticketAmount, vipAmount, regAmount)
 
   return (
-    <>
+    <div className="order-container">
       <section className="order-interface">
-        <StepIndicator />
+        <StepIndicator step={1}/>
         <h2>Select your tickets</h2>
         <h5>Note: There is a limit of 5 tickets per customer.</h5>
         <InputCounter title={"Regular"} name={"RegTicket"} subtitle={"All days"} description={"Access to concerts and vendors."} price={"799,-"} setTickets={props.setTickets} />
@@ -38,7 +38,7 @@ function step1(props) {
         <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} />
         <Button buttonType={"primary"} buttonText={"Select camp options"} href={"/tickets/step2"} />
       </div>
-    </>
+      </div>
   );
 }
 

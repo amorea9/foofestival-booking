@@ -1,12 +1,14 @@
 import React from "react";
 import InputPaymentInfo from "../../components/UI-components/InputPaymentInfo";
 import StepIndicator from "../../components/UI-components/StepIndicator";
+import OrderOverview from "../../components/OrderOverview";
+import Button from "../../components/UI-components/Button";
 
 function step4() {
   return (
     <>
       <section className="order-interface">
-        <StepIndicator />
+        <StepIndicator step={4}/>
         <h2>Payment information</h2>
         <h5>Please enter your payment information.</h5>
         <InputPaymentInfo />

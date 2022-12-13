@@ -72,7 +72,7 @@ h5 {
 }
 
 .SplashContainer {
-  height: 85vh;
+  height: 90vh;
   max-width: fit-content;
   display: grid;
   justify-content: center;
@@ -193,16 +193,30 @@ footer {
 }
 
 .booking-steps-buttons {
+  grid-column: 2 / -1;
+  grid-row: 2 / -1;
   display: flex;
   justify-content: space-between;
   margin: 1rem;
   margin-inline: 2rem;
-  align-items: center;
+  align-items: flex-end;
 }
+
+//INPUT FIELDS 
+.react-numeric-input {
+  input {
+  background-color: $black;
+  color: $white;
+  height: 100%;
+  }
+}
+
+
+
 
 // SECTIONS
 section {
-  border-top: $border;
+  // border-top: $border;
   padding-bottom: 2rem;
 }
 
@@ -211,8 +225,20 @@ section {
   border: $border;
 }
 
-// HEADLINERS
+// Accordions
+.accordion {
+  border: $border;
+}
 
+.accordion__heading {
+  //title box styling here
+}
+
+.accordion__panel {
+  //drop down box styling here
+}
+
+// HEADLINERS
 .headliners {
   padding-inline: 2rem;
 }
@@ -257,6 +283,7 @@ section {
 .lineup-menu {
   padding-bottom: 2rem;
   padding-inline: 2rem;
+  border: $border;
   // make fixed menu on desktop
 }
 
@@ -309,10 +336,21 @@ section {
 
 // BOOKING STEPS - ORDER INTERFACE
 
+.order-container {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
 .order-interface {
-  margin-top: 1rem;
+  grid-row: 1 / -1;
   padding-inline: 1rem;
   padding-top: 0.5rem;
+  border: $border;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  padding: 2rem 2rem;
 }
 
 .input-box {
@@ -321,6 +359,16 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  div:nth-child(2) {
+    display: flex;
+    margin-right: 5%;
+    column-gap: 1rem;
+  }
+}
+
+.drop-box {
+  width: 50%;
 }
 
 select {
@@ -334,12 +382,16 @@ select {
   width: 100%;
 }
 
+
 // BOOKING STEPS - ORDER OVERVIEW
 
 .order-overview {
   padding: 1rem;
   border: $border;
   border-inline: none;
+  right: 0;
+  grid-column: 2 / -1;
+  grid-row: 1 / 2;
 
   section {
     border-color: $grey;
@@ -354,3 +406,22 @@ select {
     padding-inline: 0;
   }
 }
+
+//form components
+.step-indicator {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+//form media queries
+
+@media screen and (max-width: 830px) {
+  // .SplashContainer {
+  //   h1 {
+  //     font-size: 4.5rem;
+  //     overflow: hidden;
+  //   }
+  // }
+}
+

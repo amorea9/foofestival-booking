@@ -1,4 +1,11 @@
 import React from "react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from 'react-accessible-accordion';
 
 // TICKETINFO - personal info form for each person's ticket
 // check which type is being requested and return based on this
@@ -6,22 +13,42 @@ import React from "react";
 // NPM INSTALL ACCORDION?
 
 function InputPersonalInfo(props) {
+  function onChange(event) {
+    console.log(event.target.name,"was changed to: ", event.target.value);
+  }
+  
   return (
-    <div>
-      <h2>Person 1</h2>
+    <Accordion allowZeroExpanded>
+      <AccordionItem>
+        <AccordionItemHeading>
+          <AccordionItemButton>
+          <h2>Person #</h2>
+          </AccordionItemButton>
+        </AccordionItemHeading>
+        <AccordionItemPanel>
+        <div>
       <h2>Regular ticket</h2>
-      <div>
         <label>
           First name
-          <input type="text" name="firstName" placeholder="John" />
+          <input type="text" name="firstName" placeholder="John" onBlur={onChange}/>
         </label>
         <label>
           Last name
-          <input type="text" name="lastName" placeholder="Applebaum" />
+          <input type="text" name="lastName" placeholder="Applebaum" onBlur={onChange}/>
+        </label>
+        <label>
+          Phone Number
+          <input type="text" name="telephone" placeholder="** ** ** **"onBlur={onChange}/>
+        </label>
+        <label>
+          Date of Birth
+          <input type="date" name="birthDate" onBlur={onChange}/>
         </label>
         {/* NPM INSTALL SOMETHING FOR PHONE AND BIRTH DATE? */}
       </div>
-    </div>
+        </AccordionItemPanel>
+      </AccordionItem>
+    </Accordion>
   );
 }
 
