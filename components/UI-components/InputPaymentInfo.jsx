@@ -7,39 +7,43 @@ function InputPaymentInfo() {
     console.log("submitted")
   }
   return (
-    <>
-
+    <div className="payment-field">
+        <h3>Credit Card Details</h3>
      <form onSubmit={submit}>
-        <div className="form-control">
-            <label htmlFor="form-name">Name On Card</label>
+        <div>
+            <label htmlFor="form-name">Name On Card
             <input required type="text" name="name" id="form-name" />
+            </label>
         </div>
-        <div className="form-control">
-            <label htmlFor="form-card">Card Number</label>
+        <div>
+            <label htmlFor="form-card">Card Number
             <input required type="text" name="cardNo" id="form-cardno" />
-        </div>
-        <div className="form-control">
-            <label htmlFor="form-expiry">Expiry Date</label>
+            </label>
+
+            <label htmlFor="form-expiry">Expiry Date
             <input required type="text" name="expiry" id="form-expiry" />
-        </div>
-        <div className="form-control">
-            <label htmlFor="form-cvr">CSC Number</label>
+            </label>
+
+            <label htmlFor="form-cvr">CSC Number
             <input required type="text" name="expiry" id="form-expiry" />
+            </label>
         </div>
-        <div className="form-control">
-            <label htmlFor="form-email">Email</label>
+        <div>
+            <label htmlFor="form-email">Email
             <input required type="email" name="email" id="form-email" />
-        </div>
-        <div className="form-control">
-            <label htmlFor="form-email">Telephone</label>
+            </label>
+
+            <label htmlFor="form-email">Telephone
             <input required type="text" name="phone" id="form-phone" />
+            </label>
         </div>
-        <div className="form-control">
-            <label htmlFor="form-address">Billing Address</label>
+        <div>
+            <label htmlFor="form-address">Billing Address
             <textarea required  name="address" id="form-address" />
-        </div>
+            </label>
+            </div>
     </form>
-    </>
+    </div>
   );
 }
 
