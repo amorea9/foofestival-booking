@@ -1,11 +1,8 @@
 
-import React from 'react'
+import React from 'react';
 import NumericInput from 'react-numeric-input';
 
 function InputCounter(props) {
-    function handleChange(event) {
-        console.log("changed");
-        console.log("amount is: ", event, "and name of value is: ", props.name);
       
   // update tickets in order overview based on user input
   function updateTickets(event) {
@@ -13,6 +10,7 @@ function InputCounter(props) {
     props.setTickets(tick);
     console.log(tick);
   }
+
 
     return (
         <div className="input-box box">
@@ -29,5 +27,5 @@ function InputCounter(props) {
           </div>
         </div>
       )
-
+    }
 export default InputCounter;
