@@ -185,7 +185,7 @@ footer {
   align-items: center;
   column-gap: 2rem;
   padding: 1rem;
-  border-top: $border;
+
   div {
     min-width: 10%;
     display: flex;
@@ -392,6 +392,19 @@ section {
 
 // BOOKING STEPS - ORDER INTERFACE
 
+.confirmation {
+  display: grid;
+  height: 80vh;
+  place-items: center;
+  div {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 2rem;
+  }
+}
+
 .order-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -403,8 +416,8 @@ section {
   border: $border;
   display: flex;
   flex-direction: column;
-  // row-gap: 0.5rem;
-  // padding: 2rem 2rem;
+  row-gap: 0.5rem;
+  padding: 2rem 2rem;
 }
 
 .input-box {

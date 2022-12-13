@@ -6,7 +6,7 @@ import InputPersonalInfo from "../../components/UI-components/InputPersonalInfo"
 import { useMediaQuery } from "usehooks-ts";
 import MobileOrderOverview from "../../components/MobileOrderOverview";
 
-function step3() {
+function step3(props) {
   // const ticketAmount = amount of requested tickets from previous step
   // number of <InputPersonalInfo/> fields based on number of tickets
   // const setupPrice = base fee + fee for each additional person

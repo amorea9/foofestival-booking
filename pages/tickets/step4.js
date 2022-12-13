@@ -6,7 +6,7 @@ import Button from "../../components/UI-components/Button";
 import { useMediaQuery } from "usehooks-ts";
 import MobileOrderOverview from "../../components/MobileOrderOverview";
 
-function step4() {
+function step4(props) {
   // order overview responsiveness
   const matches = useMediaQuery("(min-width: 1100px)");
   return (
