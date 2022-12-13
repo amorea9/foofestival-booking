@@ -193,8 +193,6 @@ footer {
 }
 
 .booking-steps-buttons {
-  grid-column: 2 / -1;
-  grid-row: 2 / -1;
   display: flex;
   justify-content: space-between;
   margin: 1rem;
@@ -202,15 +200,12 @@ footer {
   align-items: flex-end;
 }
 
-//INPUT FIELDS 
+//INPUT FIELDS
 .react-numeric-input {
   input {
-  height: 100%;
+    height: 100%;
   }
 }
-
-
-
 
 // SECTIONS
 section {
@@ -335,13 +330,11 @@ section {
 // BOOKING STEPS - ORDER INTERFACE
 
 .order-container {
-  width: 100vw;
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 1fr;
 }
 
 .order-interface {
-  grid-row: 1 / -1;
   padding-inline: 1rem;
   padding-top: 0.5rem;
   border: $border;
@@ -380,7 +373,6 @@ select {
   width: 100%;
 }
 
-
 // BOOKING STEPS - ORDER OVERVIEW
 
 .order-overview {
@@ -388,8 +380,6 @@ select {
   border: $border;
   border-inline: none;
   right: 0;
-  grid-column: 2 / -1;
-  grid-row: 1 / 2;
 
   section {
     border-color: $grey;
@@ -403,6 +393,44 @@ select {
     padding: 1rem;
     padding-inline: 0;
   }
+}
+
+// Mobile order overview - drop-down functionality, etc.
+.mobile-order-overview {
+  grid-row: 1;
+  border: $border;
+  margin: 0.5rem;
+
+  .order-overview-dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: $border;
+  }
+
+  .order-overview {
+    border: none;
+  }
+
+  .dropdown-arrow {
+    transform: rotate(-90deg);
+    font-size: 2.5rem;
+    line-height: 1rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.mobile-order-overview:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.orange {
+  color: $orange;
 }
 
 //form components
@@ -423,3 +451,24 @@ select {
   // }
 }
 
+@media screen and (min-width: 1100px) {
+  .order-container {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 60% 40%;
+  }
+
+  .order-interface {
+    grid-row: 1 / -1;
+  }
+
+  .order-overview {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+  }
+
+  .booking-steps-buttons {
+    grid-column: 2 / -1;
+    grid-row: 2 / -1;
+  }
+}
