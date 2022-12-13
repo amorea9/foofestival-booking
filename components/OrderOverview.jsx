@@ -1,16 +1,5 @@
 import React from "react";
 
-/*   // global object for the user's order
-  const [orderInfo, setOrderInfo] = useState({
-    totalTickets: 0,
-    vipTickets: 0,
-    regTickets: 0,
-    selectedArea: "",
-    tentService: false,
-    greenCamping: false,
-    timedOut: false,
-  }); */
-
 function OrderOverview(props) {
   return (
     <div className="order-overview">
