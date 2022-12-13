@@ -8,6 +8,7 @@ import MobileOrderOverview from "../../components/MobileOrderOverview";
 
 function step3() {
   // const ticketAmount = amount of requested tickets from previous step
+  // number of <InputPersonalInfo/> fields based on number of tickets
   // const setupPrice = base fee + fee for each additional person
 
   // order overview responsiveness

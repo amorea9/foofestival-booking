@@ -7,7 +7,7 @@ function InputCheck(props) {
     }
     return (
         <div className="input-box box">
-        <div>
+        <div className='input-text'>
           <h3>{props.title}</h3>
           <h4>{props.subtitle}</h4>
           <p>{props.description}</p>
