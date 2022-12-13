@@ -6,9 +6,9 @@ function InputCounter(props) {
       
   // update tickets in order overview based on user input
   function updateTickets(event) {
-    let tick = event.target.value;
-    props.setTickets(tick);
+    let tick = event;
     console.log(tick);
+    // props.setTickets(tick);
   }
 
 
