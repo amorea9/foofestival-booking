@@ -211,8 +211,6 @@ footer {
 }
 
 .booking-steps-buttons {
-  grid-column: 2 / -1;
-  grid-row: 2 / -1;
   display: flex;
   justify-content: space-between;
   margin: 1rem;
@@ -220,17 +218,14 @@ footer {
   align-items: flex-end;
 }
 
-//INPUT FIELDS 
+//INPUT FIELDS
 .react-numeric-input {
   max-width: 30%;
   input {
     max-width: 100%;
-  height: 100%;
+    height: 100%;
   }
 }
-
-
-
 
 // SECTIONS
 section {
@@ -262,9 +257,9 @@ section {
   display: grid;
   grid-template-columns: 50% 50%;
   justify-content: space-between;
-  justify-items:right;
+  justify-items: right;
 
-  label{
+  label {
     display: flex;
     justify-content: space-between;
     min-width: 80%;
@@ -280,24 +275,23 @@ section {
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  align-items: flex-start;
-  div {
+  form {
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    column-gap: 2rem;
-    label {
+    flex-direction: column;
+    row-gap: 1rem;
+    align-items: flex-start;
+    div {
       display: flex;
-      flex-direction: column;
-      row-gap: 0.5rem;
+      justify-content: space-evenly;
+      column-gap: 2rem;
+      label {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+      }
     }
   }
-}
-
 }
 
 // HEADLINERS
@@ -399,22 +393,18 @@ form {
 // BOOKING STEPS - ORDER INTERFACE
 
 .order-container {
-  width: 100vw;
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 1fr;
 }
 
 .order-interface {
-  height: 80vh;
-  overflow-y: scroll;
-  grid-row: 1 / -1;
-  padding-inline: 1rem;
-  padding-top: 0.5rem;
+  // padding-inline: 1rem;
+  // padding-top: 0.5rem;
   border: $border;
   display: flex;
   flex-direction: column;
-  row-gap: 0.5rem;
-  padding: 2rem 2rem;
+  // row-gap: 0.5rem;
+  // padding: 2rem 2rem;
 }
 
 .input-box {
@@ -430,6 +420,16 @@ form {
     margin-right: 5%;
     column-gap: 1rem;
   }
+}
+
+.number-input {
+  width: 15rem;
+  // color: $orange;
+  // background-color: $black;
+}
+
+.rc-progress-line-path {
+  stroke: $orange;
 }
 
 .input-text {
@@ -451,7 +451,6 @@ select {
   width: 100%;
 }
 
-
 // BOOKING STEPS - ORDER OVERVIEW
 
 .order-overview {
@@ -459,8 +458,6 @@ select {
   border: $border;
   border-inline: none;
   right: 0;
-  grid-column: 2 / -1;
-  grid-row: 1 / 2;
 
   section {
     border-color: $grey;
@@ -476,6 +473,44 @@ select {
   }
 }
 
+// Mobile order overview - drop-down functionality, etc.
+.mobile-order-overview {
+  grid-row: 1;
+  border: $border;
+  margin: 0.5rem;
+
+  .order-overview-dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: $border;
+  }
+
+  .order-overview {
+    border: none;
+  }
+
+  .dropdown-arrow {
+    transform: rotate(-90deg);
+    font-size: 2.5rem;
+    line-height: 1rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.mobile-order-overview:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.orange {
+  color: $orange;
+}
+
 //form components
 .step-indicator {
   display: flex;
@@ -483,14 +518,28 @@ select {
   row-gap: 1.5rem;
 }
 
-//form media queries
+// MEDIA QUERIES
 
-@media screen and (max-width: 830px) {
-  // .SplashContainer {
-  //   h1 {
-  //     font-size: 4.5rem;
-  //     overflow: hidden;
-  //   }
-  // }
+@media screen and (min-width: 1100px) {
+  .order-container {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 60% 40%;
+  }
+
+  .order-interface {
+    grid-row: 1 / -1;
+    height: 80vh;
+    overflow-y: scroll;
+  }
+
+  .order-overview {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+  }
+
+  .booking-steps-buttons {
+    grid-column: 2 / -1;
+    grid-row: 2 / -1;
+  }
 }
-
