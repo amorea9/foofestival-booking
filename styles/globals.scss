@@ -308,15 +308,18 @@ section {
 }
 
 .headliners-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  width: 100%;
   gap: 1rem;
-  justify-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 .headliner-box {
   width: fit-content;
   height: fit-content;
+  max-width: 25rem;
 
   .headliner-img {
     aspect-ratio: 1/1;
@@ -348,7 +351,6 @@ section {
   padding-bottom: 2rem;
   padding-inline: 2rem;
   border: $border;
-  // make fixed menu on desktop
 }
 
 .lineup-menu-actions {
@@ -375,11 +377,12 @@ section {
 }
 
 .lineup-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   padding: 1rem;
   padding-inline: 2rem;
-  gap: 1rem;
+  gap: 2rem;
+  justify-content: center;
 
   h5 {
     color: $orange;
@@ -395,6 +398,11 @@ section {
   .lineup-card-titles {
     display: flex;
     justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .lineup-showing {
+    width: 100%;
   }
 }
 
@@ -528,7 +536,29 @@ select {
 
 // MEDIA QUERIES
 
+@media screen and (min-width: 900px) {
+  // LANDING PAGE
+  .lineup {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 0;
+    border: none;
+    border-top: $border;
+
+    .lineup-menu {
+      border: none;
+      border-right: $border;
+      height: 100%;
+    }
+
+    .lineup-list {
+      padding-bottom: 3rem;
+    }
+  }
+}
+
 @media screen and (min-width: 1100px) {
+  // BOOKING STEPS
   .order-container {
     width: 100vw;
     display: grid;
