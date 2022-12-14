@@ -1,9 +1,16 @@
 import React from 'react'
 
+let setUp = false
+let green = false
+
 function InputCheck(props) {
     function handleChange(event) {
-        console.log("changed");
-        console.log("name of field is: ", props.name ,"box is: ", event.target.checked);
+        if (props.name === "TentSetup") {
+           setUp = event.target.checked
+        } else if (props.name === "TentGreen") {
+           green = event.target.checked
+        }
+        props.setOptions(setUp, green)
     }
     return (
         <div className="input-box box">
