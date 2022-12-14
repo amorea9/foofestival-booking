@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Button({ buttonType, buttonText, href }) {
   return (
-    <Link href={href} className={(buttonType, "button")}>
+    <Link href={href} className={buttonType}>
       {buttonText}
     </Link>
   );

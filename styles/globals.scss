@@ -197,21 +197,32 @@ footer {
 }
 
 // BUTTONS
-.button {
+.primary {
   border: $border;
   padding: 0.5rem;
   padding-inline: 1rem;
   text-transform: uppercase;
   font-size: 1.3rem;
-  // max-width: 17rem;
   text-align: center;
+  color: $white;
+  border-color: $white;
+}
+
+.secondary {
+  border: $border;
+  padding: 0.5rem;
+  padding-inline: 1rem;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  text-align: center;
+  color: $grey;
+  border-color: $grey;
 }
 
 .booking-steps-buttons {
   display: flex;
   justify-content: space-between;
   margin: 1rem;
-  margin-inline: 2rem;
   align-items: flex-end;
 }
 
