@@ -358,6 +358,7 @@ section {
   width: fit-content;
   height: fit-content;
   max-width: 25rem;
+  display: grid;
 
   .headliner-img {
     aspect-ratio: 1/1;
@@ -371,7 +372,6 @@ section {
     justify-content: space-between;
     margin: 0.5rem;
     align-items: center;
-    flex-wrap: wrap;
   }
 
   h4 {
@@ -380,6 +380,11 @@ section {
 
   p {
     margin: 1rem;
+  }
+
+  iframe {
+    justify-self: center;
+    margin-bottom: 1rem;
   }
 }
 
