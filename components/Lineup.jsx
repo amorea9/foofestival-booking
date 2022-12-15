@@ -15,11 +15,6 @@ function Lineup() {
         <LineupCard />
         <LineupCard />
         <LineupCard />
-        <LineupCard />
-        <LineupCard />
-        <LineupCard />
-        <LineupCard />
-        <LineupCard />
       </section>
     </section>
   );

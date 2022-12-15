@@ -18,9 +18,6 @@ function LineupMenu() {
           <option value="metal">Z-A</option>
         </select>
       </div>
-
-      <h5>This is a subheading</h5>
-      <p>This is a paragraph</p>
     </div>
   );
 }

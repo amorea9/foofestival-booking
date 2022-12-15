@@ -206,6 +206,10 @@ footer {
   text-align: center;
   color: $white;
   border-color: $white;
+  overflow: hidden;
+
+  width: fit-content;
+  height: 2.8rem;
 }
 
 .secondary {
@@ -224,6 +228,36 @@ footer {
   justify-content: space-between;
   margin: 1rem;
   align-items: flex-end;
+}
+
+// button hover effects
+
+.primary:hover {
+  border-color: $orange;
+  transition: all 0.4s ease-in;
+}
+
+.primary::after {
+  content: "";
+  display: block;
+  position: relative;
+  width: 150%;
+  height: 1rem;
+  background-color: $white;
+  top: -500%;
+  left: -80%;
+  rotate: -45deg;
+}
+
+.primary:hover::after {
+  transition: all 0.8s;
+  transform: translate(0, 2000%);
+}
+
+.secondary:hover {
+  border-color: $orange;
+  color: $white;
+  transition: all 0.4s ease-in;
 }
 
 //INPUT FIELDS
@@ -351,6 +385,7 @@ section {
   padding-bottom: 2rem;
   padding-inline: 2rem;
   border: $border;
+  border-inline: none;
 }
 
 .lineup-menu-actions {
