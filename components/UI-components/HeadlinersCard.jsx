@@ -10,7 +10,43 @@ function HeadlinersCard({ src, bandName, day, descr, alt }) {
         <h4>{day}</h4>
       </div>
       <p>{descr}</p>
-      <div>Spotify embed here</div>
+
+      {bandName == "Metallica" && (
+        <iframe
+          // style="border-radius:12px"
+          src="https://open.spotify.com/embed/track/0nLiqZ6A27jJri2VCalIUs?utm_source=generator&theme=0"
+          width="90%"
+          height="80"
+          frameBorder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      )}
+      {bandName == "Tool" && (
+        <iframe
+          // style="border-radius:12px"
+          src="https://open.spotify.com/embed/track/1lATXTBJDHwawvT1UfxWu3?utm_source=generator&theme=0"
+          width="90%"
+          height="80"
+          frameBorder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      )}
+      {bandName == "AC/DC" && (
+        <iframe
+          // style="border-radius:12px"
+          src="https://open.spotify.com/embed/track/08mG3Y1vljYA6bvDt4Wqkj?utm_source=generator&theme=0"
+          width="90%"
+          height="80"
+          frameBorder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      )}
     </article>
   );
 }
