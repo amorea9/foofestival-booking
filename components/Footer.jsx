@@ -8,10 +8,16 @@ import Image from "next/image";
 function Footer() {
   return (
     <footer>
-      <div>
-        <a href="#"><Image src={tiktok} alt="Foofest Tiktok Page" className="icon"/></a>
-        <a href="#"><Image src={insta} alt="Foofest Instagram Page" className="icon"/></a>
-        <a href="#"><Image src={facebook} alt="Foofest Facebook Page" className="icon"/></a>
+      <div className="socials">
+        <a href="#">
+          <Image src={tiktok} alt="Foofest Tiktok Page" className="icon" />
+        </a>
+        <a href="#">
+          <Image src={insta} alt="Foofest Instagram Page" className="icon" />
+        </a>
+        <a href="#">
+          <Image src={facebook} alt="Foofest Facebook Page" className="icon" />
+        </a>
       </div>
       <h5>FAQs</h5>
       <h5>Volunteer</h5>

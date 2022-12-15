@@ -7,10 +7,11 @@ function Lineup() {
     <section className="lineup">
       <LineupMenu />
       <section className="lineup-list">
-        <div>
+        <div className="lineup-showing">
           <h4>Bands</h4>
           <h5>Showing all</h5>
         </div>
+        <LineupCard />
         <LineupCard />
         <LineupCard />
         <LineupCard />

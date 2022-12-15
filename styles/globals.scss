@@ -102,7 +102,7 @@ h5 {
   background-repeat: no-repeat;
   //insert alt to here
   z-index: -1;
-  animation: orbit 10s infinite linear;
+  animation: orbit 20s infinite linear;
   transform-origin: 73vw 93vh;
 }
 
@@ -176,42 +176,88 @@ nav {
 
 // FOOTER
 footer {
-  width: 100%;
-  height: 8vh;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   column-gap: 2rem;
   padding: 1rem;
-  div {
-    min-width: 10%;
-    display: flex;
-    justify-content: space-between;
-  }
+  border-top: $border;
+
   .icon {
-    mix-blend-mode:hard-light;
+    mix-blend-mode: hard-light;
     height: 30px;
     width: auto;
+  }
+
+  .socials {
+    display: flex;
+    justify-content: space-between;
+    width: 8rem;
   }
 }
 
 // BUTTONS
-.button {
+.primary {
   border: $border;
   padding: 0.5rem;
   padding-inline: 1rem;
   text-transform: uppercase;
   font-size: 1.3rem;
-  // max-width: 17rem;
   text-align: center;
+  color: $white;
+  border-color: $white;
+  overflow: hidden;
+
+  width: fit-content;
+  height: 2.8rem;
+}
+
+.secondary {
+  border: $border;
+  padding: 0.5rem;
+  padding-inline: 1rem;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  text-align: center;
+  color: $grey;
+  border-color: $grey;
 }
 
 .booking-steps-buttons {
   display: flex;
   justify-content: space-between;
   margin: 1rem;
-  margin-inline: 2rem;
   align-items: flex-end;
+}
+
+// button hover effects
+
+.primary:hover {
+  border-color: $orange;
+  transition: all 0.4s ease-in;
+}
+
+.primary::after {
+  content: "";
+  display: block;
+  position: relative;
+  width: 150%;
+  height: 1rem;
+  background-color: $white;
+  top: -500%;
+  left: -80%;
+  rotate: -45deg;
+}
+
+.primary:hover::after {
+  transition: all 0.8s;
+  transform: translate(0, 2000%);
+}
+
+.secondary:hover {
+  border-color: $orange;
+  color: $white;
+  transition: all 0.4s ease-in;
 }
 
 //INPUT FIELDS
@@ -263,6 +309,10 @@ section {
   }
 }
 
+.accordion__button:hover {
+  cursor: pointer;
+}
+
 .payment-field {
   border: $border;
   width: 100%;
@@ -296,15 +346,18 @@ section {
 }
 
 .headliners-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  width: 100%;
   gap: 1rem;
-  justify-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 .headliner-box {
   width: fit-content;
   height: fit-content;
+  max-width: 25rem;
 
   .headliner-img {
     aspect-ratio: 1/1;
@@ -336,7 +389,7 @@ section {
   padding-bottom: 2rem;
   padding-inline: 2rem;
   border: $border;
-  // make fixed menu on desktop
+  border-inline: none;
 }
 
 .lineup-menu-actions {
@@ -363,11 +416,12 @@ section {
 }
 
 .lineup-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   padding: 1rem;
   padding-inline: 2rem;
-  gap: 1rem;
+  gap: 2rem;
+  justify-content: center;
 
   h5 {
     color: $orange;
@@ -383,37 +437,30 @@ section {
   .lineup-card-titles {
     display: flex;
     justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .lineup-showing {
+    width: 100%;
   }
 }
 
 // BOOKING STEPS - ORDER INTERFACE
 
-.confirmation {
-  display: grid;
-  height: 80vh;
-  place-items: center;
-  div {
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    row-gap: 2rem;
-  }
-}
-
 .order-container {
   display: grid;
   grid-template-columns: 1fr;
+  padding: 1rem;
 }
 
 .order-interface {
-  // padding-inline: 1rem;
-  // padding-top: 0.5rem;
+  padding-inline: 2rem;
+  padding-top: 1rem;
   border: $border;
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.5rem;
-  padding: 2rem 2rem;
+  // display: flex;
+  // flex-direction: column;
+  // row-gap: 0.5rem;
+  // padding: 2rem 2rem;
 }
 
 .input-box {
@@ -426,13 +473,16 @@ section {
   div:nth-child(2) {
     display: flex;
     justify-content: flex-end;
-    margin-right: 5%;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+    // margin-right: 5%;
     column-gap: 1rem;
+    // width: 15rem;
   }
 }
 
 .number-input {
-  width: 15rem;
+  // width: 15rem;
   // color: $orange;
   // background-color: $black;
 }
@@ -493,7 +543,7 @@ select {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    border-bottom: $border;
+    // border-bottom: $border;
   }
 
   .order-overview {
@@ -524,11 +574,32 @@ select {
 .step-indicator {
   display: flex;
   flex-direction: column;
-  row-gap: 1.5rem;
+  row-gap: 0.5rem;
 }
 
 // MEDIA QUERIES
 
+@media screen and (min-width: 900px) {
+  // LANDING PAGE
+  .lineup {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 0;
+    border: none;
+    border-top: $border;
+
+    .lineup-menu {
+      border: none;
+      border-right: $border;
+      height: 100%;
+    }
+    .lineup-list {
+      padding-bottom: 3rem;
+    }
+  }
+} 
+
+/*
 @media screen and (max-width: 600px) {
   // FOOTER
 footer {
@@ -549,11 +620,10 @@ footer {
     height: 40px;
     width: auto;
   }
-}
-
-}
+} */
 
 @media screen and (min-width: 1100px) {
+  // BOOKING STEPS
   .order-container {
     width: 100vw;
     display: grid;
@@ -563,7 +633,7 @@ footer {
   .order-interface {
     grid-row: 1 / -1;
     height: 80vh;
-    overflow-y: scroll;
+    // overflow-y: scroll;
   }
 
   .order-overview {
