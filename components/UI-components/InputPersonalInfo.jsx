@@ -10,6 +10,10 @@ import {
 // TICKETINFO - personal info form for each person's ticket
 // check which type is being requested and return based on this
 
+// OR
+//create AccordionItem * regTickets
+//create AccordionItem * vipTickets
+
 // NPM INSTALL ACCORDION?
 
 function InputPersonalInfo(props) {
@@ -22,7 +26,9 @@ function InputPersonalInfo(props) {
       <AccordionItem>
         <AccordionItemHeading>
           <AccordionItemButton>
+            {/* insert name from firstName input */}
           <h2>Person #</h2>
+          
           <h3>Regular ticket</h3>
           </AccordionItemButton>
         </AccordionItemHeading>
