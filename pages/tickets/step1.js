@@ -13,15 +13,14 @@ import MobileOrderOverview from "../../components/MobileOrderOverview";
 
 function step1(props) {
   function setTicketBasket(ticketNumber, ticketType) {
-    let regular
-    let vip
+    let regular;
+    let vip;
     if (ticketType === "Regular") {
-      regular = ticketNumber
-
+      regular = ticketNumber;
     } else if (ticketType === "VIP") {
-      vip = ticketNumber
+      vip = ticketNumber;
     }
-    props.setTickets(regular, vip)
+    props.setTickets(regular, vip);
     // setTickets(tick);
   }
 
@@ -37,7 +36,7 @@ function step1(props) {
         <h2>Select your tickets</h2>
         <h5>Note: There is a limit of 5 tickets per customer.</h5>
         <InputCounter title={"Regular"} name={"RegTicket"} subtitle={"All days"} description={"Access to concerts and vendors."} price={"799,-"} setTicketBasket={setTicketBasket} />
-        <InputCounter title={"VIP"} name={"VIPTicket"} subtitle={"All days"} description={"Includes food & drink discounts and early access to stages."} price={"1299,-"} setTicketBasket={setTicketBasket}/>
+        <InputCounter title={"VIP"} name={"VIPTicket"} subtitle={"All days"} description={"Includes food & drink discounts and early access to stages."} price={"1299,-"} setTicketBasket={setTicketBasket} />
         <h2>Select your camp area</h2>
         <h5>Each ticket counts for one space in a camp area.</h5>
         <InputDrop optionOne={"Area 1"} optionTwo={"Area 2"} />

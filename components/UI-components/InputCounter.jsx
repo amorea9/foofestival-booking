@@ -2,21 +2,21 @@ import React from "react";
 import NumericInput from "react-numeric-input";
 
 function InputCounter(props) {
-  function handleClick(event){
+  function handleClick(event) {
     let ticketNumber = event;
-    let ticketType = props.title
+    let ticketType = props.title;
     props.setTicketBasket(ticketNumber, ticketType);
   }
   return (
     <div className="input-box box">
-      <div>
+      <div className="ticket-details">
         <h3>{props.title}</h3>
         <h4>{props.subtitle}</h4>
         <p>{props.description}</p>
       </div>
-      <div>
+      <div className="price-input">
         <h3>{props.price}</h3>
-        <NumericInput name={props.title} className="number-input" min={0} max={5} step={1} mobile onChange={handleClick}/>
+        <NumericInput name={props.title} className="number-input" min={0} max={5} step={1} mobile onChange={handleClick} />
 
         {/* default value of input must be value={basket.ticketamount} or something} */}
       </div>
