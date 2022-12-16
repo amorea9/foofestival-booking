@@ -19,7 +19,7 @@ function InputCheck(props) {
         <h4>{props.subtitle}</h4>
         <p>{props.description}</p>
       </div>
-      <div>
+      <div className="price-input">
         <h3>{props.price}</h3>
         <div className="checkbox-container">
           <input type="checkbox" className="hidden" id="checkbox" onChange={handleChange} />

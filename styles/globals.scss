@@ -251,29 +251,73 @@ section {
 // Accordions
 .accordion {
   border: $border;
-  padding: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
 }
 
 .accordion__button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  :nth-child(2) {
+    text-align: right;
+  }
+}
+
+.dropdown {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  .dropdown-arrow {
+    margin-right: 0;
+    width: 1rem;
+    height: 1.5rem;
+    display: block;
+  }
 }
 
 .accordion-field {
-  max-width: 100%;
   margin-top: 1rem;
-  padding: 0.5rem;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  justify-content: space-between;
-  justify-items: right;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  column-gap: 2rem;
+  max-width: 30rem;
+
+  // grid-template-columns: 50% 50%;
+  // justify-content: space-between;
+  // justify-items: right;
 
   label {
-    display: flex;
-    justify-content: space-between;
-    min-width: 80%;
-    padding: 1%;
+    display: grid;
+    width: max-content;
+    gap: 0.5rem;
+    // display: flex;
+    // justify-content: space-between;
+    // min-width: 80%;
+
+    input {
+      background-color: $black;
+      border: $border;
+      color: $white;
+      padding: 0.5rem;
+
+      path {
+        color: $white;
+      }
+    }
+    ::-webkit-calendar-picker-indicator {
+      background-color: $white;
+      padding: 0.25rem;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    input::placeholder {
+      color: $grey;
+    }
   }
 }
 
@@ -281,6 +325,7 @@ section {
   cursor: pointer;
 }
 
+// payment fields
 .payment-field {
   border: $border;
   width: 100%;
@@ -425,7 +470,7 @@ section {
   grid-template-columns: 1fr;
   padding: 1rem;
   padding-bottom: 2rem;
-  min-height: 80vh;
+  min-height: 90vh;
 }
 
 .order-interface {
@@ -436,6 +481,13 @@ section {
   // flex-direction: column;
   // row-gap: 0.5rem;
   // padding: 2rem 2rem;
+}
+
+.bookingfee {
+  margin-top: 1rem;
+  strong {
+    color: $orange;
+  }
 }
 
 .input-box {
@@ -459,6 +511,7 @@ section {
   }
 }
 
+// counter input
 .react-numeric-input {
   max-width: none !important;
   width: 6rem !important;
@@ -488,6 +541,7 @@ section {
   line-height: 225%;
 }
 
+// select drop down input
 .drop-box {
   width: 60%;
 }
@@ -503,7 +557,7 @@ select {
   width: 100%;
 }
 
-// CHECKBOXES
+// checkboxes
 .checkbox-container {
   display: grid;
   align-items: center;
@@ -573,7 +627,7 @@ select {
 .mobile-order-overview {
   grid-row: 1;
   border: $border;
-  margin: 0.5rem;
+  margin-bottom: 1rem;
 
   .order-overview-dropdown {
     display: flex;
@@ -586,13 +640,13 @@ select {
   .order-overview {
     border: none;
   }
+}
 
-  .dropdown-arrow {
-    transform: rotate(-90deg);
-    font-size: 2.5rem;
-    line-height: 1rem;
-    margin-right: 0.5rem;
-  }
+.dropdown-arrow {
+  transform: rotate(-90deg);
+  font-size: 2.5rem;
+  line-height: 1rem;
+  margin-right: 0.5rem;
 }
 
 .mobile-order-overview:hover {
@@ -605,6 +659,10 @@ select {
 
 .orange {
   color: $orange;
+}
+
+.white {
+  color: $white;
 }
 
 //form components

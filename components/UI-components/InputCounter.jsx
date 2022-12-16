@@ -17,7 +17,6 @@ function InputCounter(props) {
       <div className="price-input">
         <h3>{props.price}</h3>
         <NumericInput name={props.title} className="number-input" min={0} max={5} step={1} mobile onChange={handleClick} />
-
         {/* default value of input must be value={basket.ticketamount} or something} */}
       </div>
     </div>
