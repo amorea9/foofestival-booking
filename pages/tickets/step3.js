@@ -12,16 +12,25 @@ function step3(props) {
   // const setupPrice = base fee + fee for each additional person
   // order overview responsiveness
   const matches = useMediaQuery("(min-width: 1100px)");
-
+  const personalInfoArray = [];
+  for (let index = 1; index <= props.orderInfo.totalTickets; index++) {
+    personalInfoArray.push(<InputPersonalInfo key={index} />);
+  }
   return (
     <div className="order-container">
       <section className="order-interface">
         <StepIndicator step={3} />
         <h2>Personal information</h2>
         <h5>We need some details about each person for the tickets.</h5>
-        <InputPersonalInfo orderInfo={props.orderInfo}/>
+
+        {personalInfoArray}
+
       </section>
-      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview />}
+      {matches ? (
+        <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
+      ) : (
+        <MobileOrderOverview orderInfo={props.orderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
+      )}
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step2"} />
         <Button buttonType={"primary"} buttonText={"Continue to payment →"} href={"/tickets/step4"} />

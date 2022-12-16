@@ -12,18 +12,14 @@ import MobileOrderOverview from "../../components/MobileOrderOverview";
 // 3. if VIP + REGULAR > 5 then block counting function
 
 function step1(props) {
-  function setTicketBasket(ticketNumber, ticketType) {
-    let regular
-    let vip
-    if (ticketType === "Regular") {
-      regular = ticketNumber
 
-    } else if (ticketType === "VIP") {
-      vip = ticketNumber
-    }
-    props.setTickets(regular, vip)
-    // setTickets(tick);
-  }
+  // // update tickets in order overview based on user input
+  // function updateTickets(event) {
+  //   let tick = event.target.value;
+  //   setTickets(tick);
+  //   console.log(tick);
+  // }
+
 
   // function setTickets(ticketAmount, vipAmount, regAmount)
 
@@ -36,13 +32,18 @@ function step1(props) {
         <StepIndicator step={1} />
         <h2>Select your tickets</h2>
         <h5>Note: There is a limit of 5 tickets per customer.</h5>
-        <InputCounter title={"Regular"} name={"RegTicket"} subtitle={"All days"} description={"Access to concerts and vendors."} price={"799,-"} setTicketBasket={setTicketBasket} />
-        <InputCounter title={"VIP"} name={"VIPTicket"} subtitle={"All days"} description={"Includes food & drink discounts and early access to stages."} price={"1299,-"} setTicketBasket={setTicketBasket}/>
+
+
+        <InputCounter updateRegTickets={props.updateRegTickets} title={"Regular"} name={"RegTicket"} subtitle={"All days"} description={"Access to concerts and vendors."} price={"799,-"} setTickets={props.setTickets} />
+
+        <InputCounter updateVIPTickets={props.updateVIPTickets} title={"VIP"} name={"VIPTicket"} subtitle={"All days"} description={"Includes food & drink discounts and early access to stages."} price={"1299,-"} />
+
+
         <h2>Select your camp area</h2>
         <h5>Each ticket counts for one space in a camp area.</h5>
-        <InputDrop optionOne={"Area 1"} optionTwo={"Area 2"} />
+        <InputDrop selectArea={props.selectArea} optionOne={"Svartheim"} optionTwo={"Nilfheim"} optionThree={"Helheim"} optionFour={"Muspelheim"} optionFive={"Alfheim"} />
       </section>
-      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview />}
+      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />}
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} />
         <Button buttonType={"primary"} buttonText={"Select camp options →"} href={"/tickets/step2"} />
