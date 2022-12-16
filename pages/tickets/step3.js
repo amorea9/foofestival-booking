@@ -23,7 +23,7 @@ function step3(props) {
         <InputPersonalInfo />
         <InputPersonalInfo />
       </section>
-      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview />}
+      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />}
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step2"} />
         <Button buttonType={"primary"} buttonText={"Continue to payment →"} href={"/tickets/step4"} />

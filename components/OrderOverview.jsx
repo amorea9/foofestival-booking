@@ -10,7 +10,6 @@ function OrderOverview(props) {
       <h5>Your tickets are reserved for 5 minutes.</h5>
 
       {/* SELECTED TICKETS */}
-      {props.orderInfo.totalTickets != 0 && <section className="order-overview-tickets"> </section>}
 
       {props.orderInfo.vipTickets > 0 ? (
         <section className="order-overview-tickets">

@@ -15,12 +15,13 @@ function MyApp({ Component, pageProps }) {
     timedOut: false,
   });
 
-  // useEffect(() => {
-  //   function setTickets() {
-  //     setOrderInfo({ ...orderInfo, totalTickets: orderInfo.regTickets + orderInfo.vipTickets });
-  //     console.log("tot tickets", totalTickets);
-  //   }
-  // }, [orderInfo]);
+  useEffect(() => {
+    function setTickets() {
+      let totalTickets = orderInfo.vipTickets + orderInfo.regTickets;
+      setOrderInfo({ ...orderInfo, totalTickets: totalTickets });
+    }
+    setTickets();
+  }, [orderInfo.regTickets, orderInfo.vipTickets]);
 
   // save regular and vip tickets in state
   function updateRegTickets(event) {
@@ -28,6 +29,7 @@ function MyApp({ Component, pageProps }) {
     console.log("regular", tickReg);
     setOrderInfo({ ...orderInfo, regTickets: tickReg });
   }
+
   function updateVIPTickets(event) {
     let tickVIP = event;
     console.log("VIP", tickVIP);
@@ -39,20 +41,23 @@ function MyApp({ Component, pageProps }) {
   function setAddOns(tentChoice, greenChoice) {
     setOrderInfo({ ...orderInfo, tentService: tentChoice, greenCamping: greenChoice });
   }
+
   const selectArea = (e) => {
-    //TODO: hookup reserve a spot here
-    //TODO: filter for area that's the same as selectedArea
-    //TODO: if the spots are >= the tickets number then reserve it -> start timer
     setOrderInfo({
       ...orderInfo,
       selectedArea: e.target.value,
     });
   };
 
+  //when the "next" button is clicked
+  //TODO: hookup reserve a spot. checks for selected area into state
+  //TODO: filter for area in "reserve" endpoint that's the same as selectedArea
+  //TODO: if the spots are >= the tickets number then reserve it -> start timer
+
   return (
     <>
       <Layout>
-        <Component updateRegTickets={updateRegTickets} updateVIPTickets={updateVIPTickets} {...pageProps} orderInfo={orderInfo} setOrderInfo={setOrderInfo} setAddOns={setAddOns} selectArea={selectArea} />
+        <Component updateRegTickets={updateRegTickets} updateVIPTickets={updateVIPTickets} {...pageProps} orderInfo={orderInfo} setAddOns={setAddOns} selectArea={selectArea} />
       </Layout>
     </>
   );

@@ -17,7 +17,7 @@ function step4(props) {
         <h5>Please enter your payment information.</h5>
         <InputPaymentInfo />
       </section>
-      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview />}
+      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />}
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step3"} />
         <Button buttonType={"primary"} buttonText={"Confirm & pay →"} href={"/tickets/confirmation"} />

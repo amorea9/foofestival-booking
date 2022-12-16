@@ -23,7 +23,6 @@ function step1(props) {
 
   // order overview responsiveness
   const matches = useMediaQuery("(min-width: 1100px)");
-  console.log("from step 1", props.orderInfo.regTickets);
 
   return (
     <div className="order-container">
@@ -40,7 +39,7 @@ function step1(props) {
         <h5>Each ticket counts for one space in a camp area.</h5>
         <InputDrop selectArea={props.selectArea} optionOne={"Svartheim"} optionTwo={"Nilfheim"} optionThree={"Helheim"} optionFour={"Muspelheim"} optionFive={"Alfheim"} />
       </section>
-      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview />}
+      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />}
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} />
         <Button buttonType={"primary"} buttonText={"Select camp options →"} href={"/tickets/step2"} />
