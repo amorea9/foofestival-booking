@@ -424,6 +424,8 @@ section {
   display: grid;
   grid-template-columns: 1fr;
   padding: 1rem;
+  padding-bottom: 2rem;
+  min-height: 80vh;
 }
 
 .order-interface {
@@ -472,6 +474,9 @@ section {
     i {
       background-color: $white !important;
     }
+  }
+  b:hover {
+    cursor: pointer !important;
   }
 }
 
