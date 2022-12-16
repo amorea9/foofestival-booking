@@ -38,7 +38,7 @@ function step1(props) {
 
         <h2>Select your camp area</h2>
         <h5>Each ticket counts for one space in a camp area.</h5>
-        <InputDrop optionOne={"Area 1"} optionTwo={"Area 2"} />
+        <InputDrop selectArea={props.selectArea} optionOne={"Svartheim"} optionTwo={"Nilfheim"} optionThree={"Helheim"} optionFour={"Muspelheim"} optionFive={"Alfheim"} />
       </section>
       {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview />}
       <div className="booking-steps-buttons">

@@ -36,18 +36,23 @@ function MyApp({ Component, pageProps }) {
 
   console.log("order info", orderInfo);
 
-  function setArea(area) {
-    setOrderInfo({ ...orderInfo, selectedArea: area });
-  }
-
   function setAddOns(tentChoice, greenChoice) {
     setOrderInfo({ ...orderInfo, tentService: tentChoice, greenCamping: greenChoice });
   }
+  const selectArea = (e) => {
+    //TODO: hookup reserve a spot here
+    //TODO: filter for area that's the same as selectedArea
+    //TODO: if the spots are >= the tickets number then reserve it -> start timer
+    setOrderInfo({
+      ...orderInfo,
+      selectedArea: e.target.value,
+    });
+  };
 
   return (
     <>
       <Layout>
-        <Component updateRegTickets={updateRegTickets} updateVIPTickets={updateVIPTickets} {...pageProps} orderInfo={orderInfo} setOrderInfo={setOrderInfo} setAddOns={setAddOns} setArea={setArea} />
+        <Component updateRegTickets={updateRegTickets} updateVIPTickets={updateVIPTickets} {...pageProps} orderInfo={orderInfo} setOrderInfo={setOrderInfo} setAddOns={setAddOns} selectArea={selectArea} />
       </Layout>
     </>
   );
