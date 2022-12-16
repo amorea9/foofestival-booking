@@ -2,13 +2,6 @@ import React from "react";
 import NumericInput from "react-numeric-input";
 
 function InputCounter(props) {
-  // update tickets in order overview based on user input
-  function updateTickets(event) {
-    let tick = event;
-    console.log(tick);
-    // props.setTickets(tick);
-  }
-
   return (
     <div className="input-box box">
       <div>
@@ -18,7 +11,9 @@ function InputCounter(props) {
       </div>
       <div>
         <h3>{props.price}</h3>
-        <NumericInput className="number-input" min="0" max="5" step="1" value="0" mobile onChange={updateTickets} />
+        {props.title === "Regular" && <NumericInput className="number-input" min={0} max={5} step={1} defaultValue={0} mobile onChange={props.updateRegTickets} />}
+
+        {props.title === "VIP" && <NumericInput className="number-input" min={0} max={5} step={1} defaultValue={0} mobile onChange={props.updateVIPTickets} />}
 
         {/* default value of input must be value={basket.ticketamount} or something} */}
       </div>
