@@ -4,6 +4,9 @@ function OrderOverview(props) {
   console.log("from orderOverview", props.orderInfo.regTickets);
   let totalVIP = 1299 * props.orderInfo.vipTickets;
   let totalReg = 799 * props.orderInfo.regTickets;
+  let greenPrice = 249;
+  let grandTotal = totalVIP + totalReg + 99;
+
   return (
     <div className="order-overview">
       <h3>Your order</h3>
@@ -38,23 +41,23 @@ function OrderOverview(props) {
       )}
 
       {/* SELECTED ADD-ONS */}
-      {props.orderInfo.tentService == true ||
-        (props.orderInfo.greenCamping == true && (
-          <section className="order-overview-addons">
-            {props.orderInfo.tentService == true && (
-              <div className="overview-item">
-                <h4>Tent set up</h4>
-                <h4>Price</h4>
-              </div>
-            )}
-            {props.orderInfo.greenCamping == true && (
-              <div className="overview-item">
-                <h4>Green camping</h4>
-                <h4>Price</h4>
-              </div>
-            )}
-          </section>
-        ))}
+      {props.orderInfo.tentService === true && (
+        <section className="order-overview-addons">
+          <div className="overview-item">
+            <h4>Tent set up</h4>
+            <h4>{props.setUpPrice},-</h4>
+          </div>
+        </section>
+      )}
+
+      {props.orderInfo.greenCamping === true && (
+        <section className="order-overview-addons">
+          <div className="overview-item">
+            <h4>Green camping</h4>
+            <h4>{props.tentPrice},-</h4>
+          </div>
+        </section>
+      )}
 
       {/* make this show in step 2? */}
       <section className="order-overview-fee overview-item">
@@ -66,7 +69,16 @@ function OrderOverview(props) {
       {/* insert calculation for this */}
       <section className="order-overview-total overview-item">
         <h4>Total</h4>
-        <h4>{totalVIP + totalReg + 99},-</h4>
+
+        {props.orderInfo.greenCamping === true && props.orderInfo.tentService === true ? (
+          <h4>{grandTotal + props.tentPrice + props.setUpPrice},-</h4>
+        ) : props.orderInfo.greenCamping === true ? (
+          <h4>{grandTotal + props.tentPrice},-</h4>
+        ) : props.orderInfo.tentService === true ? (
+          <h4>{grandTotal + props.setUpPrice},-</h4>
+        ) : (
+          <h4>{grandTotal},-</h4>
+        )}
       </section>
     </div>
   );

@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
     timedOut: false,
   });
 
+  //everytime either reg tickets or vip tickets are updated, update total tickets too
   useEffect(() => {
     function setTickets() {
       let totalTickets = orderInfo.vipTickets + orderInfo.regTickets;
@@ -36,11 +37,15 @@ function MyApp({ Component, pageProps }) {
     setOrderInfo({ ...orderInfo, vipTickets: tickVIP });
   }
 
-  console.log("order info", orderInfo);
-
-  function setAddOns(tentChoice, greenChoice) {
-    setOrderInfo({ ...orderInfo, tentService: tentChoice, greenCamping: greenChoice });
+  function tentSetUp(event) {
+    let tentChoice = event.target.checked;
+    setOrderInfo({ ...orderInfo, tentService: tentChoice });
   }
+  function tentGreen(event) {
+    let tentChoice = event.target.checked;
+    setOrderInfo({ ...orderInfo, greenCamping: tentChoice });
+  }
+  console.log("order info", orderInfo);
 
   const selectArea = (e) => {
     setOrderInfo({
@@ -57,7 +62,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Layout>
-        <Component updateRegTickets={updateRegTickets} updateVIPTickets={updateVIPTickets} {...pageProps} orderInfo={orderInfo} setAddOns={setAddOns} selectArea={selectArea} />
+        <Component updateRegTickets={updateRegTickets} updateVIPTickets={updateVIPTickets} {...pageProps} orderInfo={orderInfo} tentSetUp={tentSetUp} tentGreen={tentGreen} selectArea={selectArea} />
       </Layout>
     </>
   );

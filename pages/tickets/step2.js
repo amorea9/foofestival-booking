@@ -11,7 +11,9 @@ let tentSize = "";
 
 function step2(props) {
   // const ticketAmount = amount of requested tickets from previous step
-  const tickets = props.totalTickets;
+  const tickets = props.orderInfo.totalTickets;
+  console.log("step 2 tot tickets", props.orderInfo.totalTickets);
+
   // Optional, pay to have the crew set up X tents for you.
   // 2 person tent (including the tent) 299,-
   // 3 person tent (including the tent) 399,-
@@ -32,7 +34,7 @@ function step2(props) {
     setUpPrice = 299;
     tentSize = "2-person tent";
   }
-
+  let tentPrice = 249;
   // order overview responsiveness
   const matches = useMediaQuery("(min-width: 1100px)");
 
@@ -42,13 +44,15 @@ function step2(props) {
         <StepIndicator step={2} />
         <h2>Tent options</h2>
         <h5>These are optional add-ons to improve your festival experience.</h5>
-        <InputCheck title={"We can set up your tent(s)"} name={"TentSetup"} subtitle={tentSize} description={"Tents are included in price."} price={setUpPrice} />
-        <InputCheck title={"Green camping"} name={"TentGreen"} subtitle={"Sustainable tents"} description={"Tent made from recycled materials."} price={249} />
+
+        <InputCheck tentSetUp={props.tentSetUp} title={"We can set up your tent(s)"} name={"TentSetup"} subtitle={tentSize} description={"Tents are included in price."} price={`${setUpPrice},-`} />
+
+        <InputCheck tentGreen={props.tentGreen} title={"Green camping"} name={"TentGreen"} subtitle={"Sustainable tents"} description={"Tent made from recycled materials."} price={`${tentPrice},-`} />
         <p>
           <strong>NOTE:</strong> A mandatory booking fee of 99,- applies for each order.
         </p>
       </section>
-      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />}
+      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} tentPrice={tentPrice} setUpPrice={setUpPrice} /> : <MobileOrderOverview orderInfo={props.orderInfo} tentPrice={tentPrice} setUpPrice={setUpPrice} />}
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step1"} />
         <Button buttonType={"primary"} buttonText={"Continue to details →"} href={"/tickets/step3"} />
