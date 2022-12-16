@@ -10,7 +10,6 @@ function step3(props) {
   // const ticketAmount = amount of requested tickets from previous step
   // number of <InputPersonalInfo/> fields based on number of tickets
   // const setupPrice = base fee + fee for each additional person
-
   // order overview responsiveness
   const matches = useMediaQuery("(min-width: 1100px)");
 
@@ -20,8 +19,7 @@ function step3(props) {
         <StepIndicator step={3} />
         <h2>Personal information</h2>
         <h5>We need some details about each person for the tickets.</h5>
-        <InputPersonalInfo />
-        <InputPersonalInfo />
+        <InputPersonalInfo orderInfo={props.orderInfo}/>
       </section>
       {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview />}
       <div className="booking-steps-buttons">
