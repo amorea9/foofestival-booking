@@ -18,7 +18,6 @@ function HeadlinersCard({ src, bandName, day, descr, alt }) {
           width="90%"
           height="80"
           frameBorder="0"
-          allowfullscreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
@@ -30,7 +29,6 @@ function HeadlinersCard({ src, bandName, day, descr, alt }) {
           width="90%"
           height="80"
           frameBorder="0"
-          allowfullscreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
@@ -42,7 +40,6 @@ function HeadlinersCard({ src, bandName, day, descr, alt }) {
           width="90%"
           height="80"
           frameBorder="0"
-          allowfullscreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
