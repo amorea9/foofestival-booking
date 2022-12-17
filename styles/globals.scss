@@ -286,17 +286,10 @@ section {
   column-gap: 2rem;
   max-width: 30rem;
 
-  // grid-template-columns: 50% 50%;
-  // justify-content: space-between;
-  // justify-items: right;
-
   label {
     display: grid;
     width: max-content;
     gap: 0.5rem;
-    // display: flex;
-    // justify-content: space-between;
-    // min-width: 80%;
 
     input {
       background-color: $black;
@@ -479,10 +472,6 @@ section {
   padding-inline: 2rem;
   padding-top: 1rem;
   border: $border;
-  // display: flex;
-  // flex-direction: column;
-  // row-gap: 0.5rem;
-  // padding: 2rem 2rem;
 }
 
 .bookingfee {
@@ -594,7 +583,6 @@ select {
   #checkbox:checked ~ .checkbox-label {
     border-color: $orange;
     background: $black;
-    // animation: jelly 0.6s ease;
   }
 
   #checkbox:checked ~ .checkbox-label::after {
