@@ -17,92 +17,13 @@ function InputPersonalInfo(props) {
   let vipTotal = props.orderInfo.vipTickets;
 
   //regular tickets
-   for (let index = 0; index < regTotal; index++) {
+  for (let index = 0; index < regTotal; index++) {
     regAccordions.push(
-    <AccordionItem key={index}>
-      <AccordionItemHeading>
-        <AccordionItemButton>
-          {/* insert name from firstName input */}
-        <h2>Person {index+1}</h2>
-        <h3>Regular ticket</h3>
-        </AccordionItemButton>
-      </AccordionItemHeading>
-
-      <AccordionItemPanel>
-      <div className="accordion-field">
-      <label>
-        First name
-        <input type="text" name="firstName" placeholder="John" onBlur={onChange}/>
-      </label>
-      <label>
-        Last name
-        <input type="text" name="lastName" placeholder="Applebaum" onBlur={onChange}/>
-      </label>
-      <label>
-        Phone Number
-        <input type="text" name="telephone" placeholder="** ** ** **"onBlur={onChange}/>
-      </label>
-      <label>
-        Date of Birth
-        <input type="date" name="birthDate" onBlur={onChange}/>
-      </label>
-      {/* NPM INSTALL SOMETHING FOR PHONE AND BIRTH DATE? */}
-    </div>
-      </AccordionItemPanel>
-    </AccordionItem>
-    )
-   }
-   
-
-   //vip tickets
-   for (let index = 0; index < vipTotal; index++) {
-    console.log("vipTotal: ", vipTotal)
-    console.log("index: ", index)
-    vipAccordions.push(
-    <AccordionItem key={index}>
-      <AccordionItemHeading>
-        <AccordionItemButton>
-          {/* insert name from firstName input */}
-        <h2>Person {index+1}</h2>
-        <h3>VIP ticket</h3>
-        </AccordionItemButton>
-      </AccordionItemHeading>
-
-      <AccordionItemPanel>
-      <div className="accordion-field">
-      <label>
-        First name
-        <input type="text" name="firstName" placeholder="John" onBlur={onChange}/>
-      </label>
-      <label>
-        Last name
-        <input type="text" name="lastName" placeholder="Applebaum" onBlur={onChange}/>
-      </label>
-      <label>
-        Phone Number
-        <input type="text" name="telephone" placeholder="** ** ** **"onBlur={onChange}/>
-      </label>
-      <label>
-        Date of Birth
-        <input type="date" name="birthDate" onBlur={onChange}/>
-      </label>
-      {/* NPM INSTALL SOMETHING FOR PHONE AND BIRTH DATE? */}
-    </div>
-      </AccordionItemPanel>
-    </AccordionItem>
-    )
-   }
-
-  function onChange(event) {
-    console.log(event.target.name, "was changed to: ", event.target.value);
-  }
-
- /* return (
-    <Accordion allowZeroExpanded>
-      <AccordionItem>
+      <AccordionItem key={index}>
         <AccordionItemHeading>
           <AccordionItemButton>
-            <h3 className="white">Person #</h3>
+            {/* insert name from firstName input */}
+            <h3 className="white">Person {index + 1}</h3>
             <div className="dropdown">
               <h3>Regular ticket</h3>
               <h4 className="dropdown-arrow">‹</h4>
@@ -122,16 +43,65 @@ function InputPersonalInfo(props) {
             </label>
             <label>
               Phone Number
-              <input type="text" name="telephone" placeholder="+45 12542345" onBlur={onChange} />
+              <input type="text" name="telephone" placeholder="** ** ** **" onBlur={onChange} />
             </label>
             <label>
               Date of Birth
               <input type="date" name="birthDate" onBlur={onChange} />
             </label>
+            {/* NPM INSTALL SOMETHING FOR PHONE AND BIRTH DATE? */}
           </div>
         </AccordionItemPanel>
-      </AccordionItem> */
-  
+      </AccordionItem>
+    );
+  }
+
+  //vip tickets
+  for (let index = 0; index < vipTotal; index++) {
+    console.log("vipTotal: ", vipTotal);
+    console.log("index: ", index);
+    vipAccordions.push(
+      <AccordionItem key={index}>
+        <AccordionItemHeading>
+          <AccordionItemButton>
+            {/* insert name from firstName input */}
+            <h3 className="white">Person {index + 1}</h3>
+            <div className="dropdown">
+              <h3>Regular ticket</h3>
+              <h4 className="dropdown-arrow">‹</h4>
+            </div>
+          </AccordionItemButton>
+        </AccordionItemHeading>
+
+        <AccordionItemPanel>
+          <div className="accordion-field">
+            <label>
+              First name
+              <input type="text" name="firstName" placeholder="John" onBlur={onChange} />
+            </label>
+            <label>
+              Last name
+              <input type="text" name="lastName" placeholder="Applebaum" onBlur={onChange} />
+            </label>
+            <label>
+              Phone Number
+              <input type="text" name="telephone" placeholder="** ** ** **" onBlur={onChange} />
+            </label>
+            <label>
+              Date of Birth
+              <input type="date" name="birthDate" onBlur={onChange} />
+            </label>
+            {/* NPM INSTALL SOMETHING FOR PHONE AND BIRTH DATE? */}
+          </div>
+        </AccordionItemPanel>
+      </AccordionItem>
+    );
+  }
+
+  function onChange(event) {
+    console.log(event.target.name, "was changed to: ", event.target.value);
+  }
+
   return (
     <Accordion allowZeroExpanded>
       {vipAccordions}
