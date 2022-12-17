@@ -1,15 +1,13 @@
 import React from "react";
+import Button from "./Button"
 
-// npm install something for this?
+function InputPaymentInfo(props) {
 
-function InputPaymentInfo() {
-  function submit() {
-    console.log("submitted");
-  }
+
   return (
     <div className="payment-field">
       <h3>Credit Card Details</h3>
-      <form onSubmit={submit}>
+      <form>
         <div>
           <label htmlFor="form-name">
             Name On Card
@@ -19,29 +17,29 @@ function InputPaymentInfo() {
         <div>
           <label htmlFor="form-card">
             Card Number
-            <input required type="text" name="cardNo" id="form-cardno" inputmode="numeric" maxlength="16" />
+            <input required type="text" name="cardNo" id="form-cardno" inputmode="numeric" maxlength="16" onBlur={props.verify}/>
           </label>
 
           <label htmlFor="form-expiry">
             Expiry Date
-            <input required type="text" name="expiry" id="form-expiry" inputmode="numeric" maxlength="4" />
+            <input required type="text" name="expiry" id="form-expiry" inputmode="numeric" maxlength="4" onBlur={props.verify}/>
             <span>/</span>
           </label>
 
-          <label htmlFor="form-cvr">
+          <label htmlFor="form-cvc">
             CVC Number
-            <input required type="text" name="cvc" id="form-cvc" inputmode="numeric" maxlength="3" />
+            <input required type="text" name="cvc" id="form-cvc" inputmode="numeric" maxlength="3" onBlur={props.verify}/>
           </label>
         </div>
         <div>
           <label htmlFor="form-email">
             Email
-            <input required type="email" name="email" id="form-email" />
+            <input required type="email" name="email" id="form-email" onBlur={props.verify}/>
           </label>
 
           <label htmlFor="form-phone">
             Phone number
-            <input required type="text" name="phone" id="form-phone" />
+            <input required type="text" name="phone" id="form-phone" onBlur={props.verify}/>
           </label>
         </div>
         <div>
@@ -50,6 +48,9 @@ function InputPaymentInfo() {
             <textarea required name="address" id="form-address" />
           </label>
         </div>
+        {/* <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step3"} /> */}
+      {/* please style me!! */}
+      <button  onClick={props.shallPass}>Submit</button>
       </form>
     </div>
   );
