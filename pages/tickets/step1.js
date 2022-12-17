@@ -14,13 +14,43 @@ import MobileOrderOverview from "../../components/MobileOrderOverview";
 function step1(props) {
   // fetched area data
   const areaArray = props.areaData;
+  let areaNames = ["Svartheim", "Nilfheim", "Helheim", "Muspelheim", "Alfheim"];
   // order overview responsiveness
   const matches = useMediaQuery("(min-width: 1100px)");
 
-  // validate - compare selected amount of tickets to area space before allowing user to progress
+  // validate - compare selected amount of tickets to area space
   function validateArea() {
+    if (props.orderInfo.selectedArea == "Svartheim") {
+      if (props.orderInfo.totalTickets <= areaArray[0].available) {
+        console.log("all good");
+      }
+    }
+
+    // neither of these methods are working and i'm tired
+
+    if (props.orderInfo.selectedArea == "Nilfheim") {
+      {
+        props.orderInfo.totalTickets <= areaArray[1].available ? console.log("all good") : console.log("choose another area");
+      }
+    }
+    if (props.orderInfo.selectedArea == "Helheim") {
+      {
+        props.orderInfo.totalTickets <= areaArray[2].available ? console.log("all good") : console.log("choose another area");
+      }
+    }
+    if (props.orderInfo.selectedArea == "Muspelheim") {
+      {
+        props.orderInfo.totalTickets <= areaArray[3].available ? console.log("all good") : console.log("choose another area");
+      }
+    }
+    if (props.orderInfo.selectedArea == "Alfheim") {
+      {
+        props.orderInfo.totalTickets <= areaArray[4].available ? console.log("all good") : console.log("choose another area");
+      }
+    }
     // check if ticket amount matches available spaces at selected area
-    // need variable for selected area?
+    // console.log("selectedArea:", props.orderInfo.selectedArea);
+    // return either true or false
   }
 
   return (
@@ -55,6 +85,7 @@ function step1(props) {
         <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} />
         <Button buttonType={"primary"} buttonText={"Select camp options →"} href={"/tickets/step2"} />
       </div>
+      <button onClick={validateArea}>Validate area</button>
     </div>
   );
 }
