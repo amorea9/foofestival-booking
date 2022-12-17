@@ -4,45 +4,53 @@ import React from "react";
 
 function InputPaymentInfo() {
   function submit() {
-    console.log("submitted")
+    console.log("submitted");
   }
   return (
     <div className="payment-field">
-        <h3>Credit Card Details</h3>
-     <form onSubmit={submit}>
+      <h3>Credit Card Details</h3>
+      <form onSubmit={submit}>
         <div>
-            <label htmlFor="form-name">Name On Card
+          <label htmlFor="form-name">
+            Name On Card
             <input required type="text" name="name" id="form-name" />
-            </label>
+          </label>
         </div>
         <div>
-            <label htmlFor="form-card">Card Number
-            <input required type="text" name="cardNo" id="form-cardno" />
-            </label>
+          <label htmlFor="form-card">
+            Card Number
+            <input required type="text" name="cardNo" id="form-cardno" inputmode="numeric" maxlength="16" />
+          </label>
 
-            <label htmlFor="form-expiry">Expiry Date
-            <input required type="text" name="expiry" id="form-expiry" />
-            </label>
+          <label htmlFor="form-expiry">
+            Expiry Date
+            <input required type="text" name="expiry" id="form-expiry" inputmode="numeric" maxlength="4" />
+            <span>/</span>
+          </label>
 
-            <label htmlFor="form-cvr">CSC Number
-            <input required type="text" name="expiry" id="form-expiry" />
-            </label>
+          <label htmlFor="form-cvr">
+            CVC Number
+            <input required type="text" name="cvc" id="form-cvc" inputmode="numeric" maxlength="3" />
+          </label>
         </div>
         <div>
-            <label htmlFor="form-email">Email
+          <label htmlFor="form-email">
+            Email
             <input required type="email" name="email" id="form-email" />
-            </label>
+          </label>
 
-            <label htmlFor="form-email">Telephone
+          <label htmlFor="form-phone">
+            Phone number
             <input required type="text" name="phone" id="form-phone" />
-            </label>
+          </label>
         </div>
         <div>
-            <label htmlFor="form-address">Billing Address
-            <textarea required  name="address" id="form-address" />
-            </label>
-            </div>
-    </form>
+          <label htmlFor="form-address">
+            Billing Address
+            <textarea required name="address" id="form-address" />
+          </label>
+        </div>
+      </form>
     </div>
   );
 }

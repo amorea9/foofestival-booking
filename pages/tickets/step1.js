@@ -12,14 +12,12 @@ import MobileOrderOverview from "../../components/MobileOrderOverview";
 // 3. if VIP + REGULAR > 5 then block counting function
 
 function step1(props) {
-
   // // update tickets in order overview based on user input
   // function updateTickets(event) {
   //   let tick = event.target.value;
   //   setTickets(tick);
   //   console.log(tick);
   // }
-
 
   // function setTickets(ticketAmount, vipAmount, regAmount)
 
@@ -33,11 +31,9 @@ function step1(props) {
         <h2>Select your tickets</h2>
         <h5>Note: There is a limit of 5 tickets per customer.</h5>
 
-
         <InputCounter updateRegTickets={props.updateRegTickets} title={"Regular"} name={"RegTicket"} subtitle={"All days"} description={"Access to concerts and vendors."} price={"799,-"} setTickets={props.setTickets} />
 
         <InputCounter updateVIPTickets={props.updateVIPTickets} title={"VIP"} name={"VIPTicket"} subtitle={"All days"} description={"Includes food & drink discounts and early access to stages."} price={"1299,-"} />
-
 
         <h2>Select your camp area</h2>
         <h5>Each ticket counts for one space in a camp area.</h5>
