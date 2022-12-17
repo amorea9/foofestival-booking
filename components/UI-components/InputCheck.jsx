@@ -10,17 +10,21 @@ function InputCheck(props) {
         <h3>{props.title}</h3>
         <h4>{props.subtitle}</h4>
         <p>{props.description}</p>
-      /* <div className="price-input">
-        <h3>{props.price}</h3>
-        <div className="checkbox-container">
-          <input type="checkbox" className="hidden" id="checkbox" onChange={handleChange} />
-          <label htmlFor="checkbox" className="checkbox-label"></label>
-        </div> */
-      </div>
-      <div>
-        <h3>{props.price}</h3>
-        {/* insert input type depending on props.type */}
-        {props.name === "TentSetup" ? <input type="checkbox" onChange={props.tentSetUp} /> : <input type="checkbox" onChange={props.tentGreen} />}
+
+        <div className="price-input">
+          <h3>{props.price}</h3>
+          {props.name === "TentSetup" ? (
+            <div className="checkbox-container">
+              <input type="checkbox" className="hidden" id="checkbox" onChange={props.tentSetUp} />
+              <label htmlFor="checkbox" className="checkbox-label"></label>
+            </div>
+          ) : (
+            <div className="checkbox-container">
+              <input type="checkbox" className="hidden" id="checkbox" onChange={props.tentGreen} />
+              <label htmlFor="checkbox" className="checkbox-label"></label>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
