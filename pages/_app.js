@@ -9,11 +9,17 @@ function MyApp({ Component, pageProps }) {
     vipTickets: 0,
     regTickets: 0,
     totalTickets: 0,
+
     selectedArea: "",
     tentService: false,
     greenCamping: false,
     timedOut: false,
+
     guests: [],
+
+
+    validates: false,
+
   });
 
   //everytime either reg tickets or vip tickets are updated, update total tickets too
@@ -31,6 +37,10 @@ function MyApp({ Component, pageProps }) {
     console.log("regular", tickReg);
     setOrderInfo({ ...orderInfo, regTickets: tickReg });
   }
+  // function totalTickets(){
+  //   let total = orderInfo.vipTickets + orderInfo.regTickets;
+  //   setOrderInfo({...orderInfo, totalTickets: total})
+  // }
 
   function updateVIPTickets(event) {
     let tickVIP = event;
@@ -75,6 +85,10 @@ function MyApp({ Component, pageProps }) {
     });
   };
 
+  function setValidation(result) {
+    setOrderInfo({ ...orderInfo, validates: result });
+  }
+
   //when the "next" button is clicked
   //TODO: hookup reserve a spot. checks for selected area into state
   //TODO: filter for area in "reserve" endpoint that's the same as selectedArea
@@ -94,7 +108,11 @@ function MyApp({ Component, pageProps }) {
           tentPrice={tentPrice}
           setUpPrice={setUpPrice}
           tentSize={tentSize}
+
           setOrderInfo={setOrderInfo}
+
+          setValidation={setValidation}
+
         />
       </Layout>
     </>
@@ -102,3 +120,12 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+// // FETCTHING AREA DATA
+// export async function getServerSideProps() {
+//   const res = await fetch("http://localhost:8080/available-spots");
+//   const areaData = await res.json();
+//   return {
+//     props: { areaData },
+//   };
+// }

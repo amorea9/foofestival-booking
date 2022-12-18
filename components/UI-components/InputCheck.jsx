@@ -1,7 +1,8 @@
 import React from "react";
 
-let setUp = false
-let green = false
+let setUp = false;
+let green = false;
+
 
 function InputCheck(props) {
 
@@ -13,10 +14,20 @@ function InputCheck(props) {
         <p>{props.description}</p>
 
       </div>
-      <div>
+
+      <div className="price-input">
         <h3>{props.price}</h3>
-        {/* insert input type depending on props.type */}
-        {props.name === "TentSetup" ? <input type="checkbox" onChange={props.tentSetUp} /> : <input type="checkbox" onChange={props.tentGreen} />}
+        {props.name === "TentSetup" ? (
+          <div className="checkbox-container">
+            <input type="checkbox" className="hidden" id="checkbox" onChange={props.tentSetUp} />
+            <label htmlFor="checkbox" className="checkbox-label"></label>
+          </div>
+        ) : (
+          <div className="checkbox-container">
+            <input type="checkbox" className="hidden" id="checkbox" onChange={props.tentGreen} />
+            <label htmlFor="checkbox" className="checkbox-label"></label>
+          </div>
+        )}
       </div>
     </div>
   );

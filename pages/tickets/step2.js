@@ -34,7 +34,10 @@ function step2(props) {
 
         <InputCheck tentGreen={props.tentGreen} title={"Green camping"} name={"TentGreen"} subtitle={"Sustainable tents"} description={"Tent made from recycled materials."} price={`${props.tentPrice},-`} />
 
-        <p>
+
+
+        <p className="bookingfee">
+
           <strong>NOTE:</strong> A mandatory booking fee of 99,- applies for each order.
         </p>
       </section>

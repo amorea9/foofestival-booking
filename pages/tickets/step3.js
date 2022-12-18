@@ -9,6 +9,7 @@ import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, Ac
 import { useRef } from "react";
 
 function step3(props) {
+
   const theForm = useRef(null);
   const ticketHolders = [];
   const guestsArray = [...Array(props.orderInfo.totalTickets)];
@@ -39,10 +40,16 @@ function step3(props) {
     console.log("ticketHolders array", ticketHolders);
   }
   console.log("ticketHolders in info order", props.orderInfo.guests);
+
+  // const ticketAmount = amount of requested tickets from previous step
+  // number of <InputPersonalInfo/> fields based on number of tickets
+  // const setupPrice = base fee + fee for each additional person
+
   // order overview responsiveness
   const matches = useMediaQuery("(min-width: 1100px)");
 
   return (
+
     <form onSubmit={submit} ref={theForm}>
       <div className="order-container">
         <section className="order-interface">
@@ -54,11 +61,14 @@ function step3(props) {
             <Accordion allowZeroExpanded>
               <AccordionItem>
                 <AccordionItemHeading>
-                  <AccordionItemButton>
-                    <h2>Person #{i + 1}</h2>
-                    <h3>ticket type</h3>
-                    {/* {props.guests.ticketType} */}
-                  </AccordionItemButton>
+                   <AccordionItemButton>
+            {/* insert name from firstName input */}
+            <h3 className="white">Person {index + 1}</h3>
+            <div className="dropdown">
+              <h3>Regular ticket</h3>
+              <h4 className="dropdown-arrow">‹</h4>
+            </div>
+          </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                   <div className="accordion-field">
@@ -95,6 +105,7 @@ function step3(props) {
           {/* <Button buttonType={"primary"} buttonText={"Continue to payment →"}href={"/tickets/step4"} /> */}
           <button type="submit"> save</button>
         </div>
+
       </div>
     </form>
   );
