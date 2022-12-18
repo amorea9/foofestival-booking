@@ -47,10 +47,12 @@ function MyApp({ Component, pageProps }) {
   }
 
   function tentSetUp(event) {
+    console.log("setup check: ", event.target)
     let tentChoice = event.target.checked;
     setOrderInfo({ ...orderInfo, tentService: tentChoice });
   }
   function tentGreen(event) {
+    console.log("tentgreen check: ", event.target)
     let tentChoice = event.target.checked;
     setOrderInfo({ ...orderInfo, greenCamping: tentChoice });
   }
