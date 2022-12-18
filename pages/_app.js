@@ -83,9 +83,9 @@ function MyApp({ Component, pageProps }) {
     });
   };
 
-  function setValidation(result) {
-    setOrderInfo({ ...orderInfo, validates: result });
-  }
+  // function setValidation(result) {
+  //   setOrderInfo({ ...orderInfo, validates: result });
+  // }
 
   //when the "next" button is clicked
   //TODO: hookup reserve a spot. checks for selected area into state
@@ -107,7 +107,6 @@ function MyApp({ Component, pageProps }) {
           setUpPrice={setUpPrice}
           tentSize={tentSize}
           setOrderInfo={setOrderInfo}
-          setValidation={setValidation}
         />
       </Layout>
     </>

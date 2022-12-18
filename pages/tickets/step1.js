@@ -12,8 +12,6 @@ import MobileOrderOverview from "../../components/MobileOrderOverview";
 // 3. if VIP + REGULAR > 5 then block counting function
 
 function step1(props) {
-
-
   // // update tickets in order overview based on user input
   // function updateTickets(event) {
   //   let tick = event.target.value;
@@ -21,9 +19,7 @@ function step1(props) {
   //   console.log(tick);
   // }
 
-
   // function setTickets(ticketAmount, vipAmount, regAmount)
-
 
   // fetched area data
   const areaArray = props.areaData;
@@ -45,11 +41,12 @@ function step1(props) {
     // console.log(chosenArea);
 
     if (props.orderInfo.selectedArea == "Svartheim") {
-      {
-        props.orderInfo.totalTickets <= areaArray[0].available ? true : false;
-      }
-      {
-        props.orderInfo.totalTickets <= areaArray[0].available ? console.log("all good") : console.log("no bueno");
+      if (props.orderInfo.totalTickets <= areaArray[0].available) {
+        props.setOrderInfo({ ...props.orderInfo, validates: true });
+        console.log("all good");
+      } else {
+        props.setOrderInfo({ ...props.orderInfo, validates: false });
+        console.log("no bueno");
       }
     }
     if (props.orderInfo.selectedArea == "Nilfheim") {
@@ -76,7 +73,6 @@ function step1(props) {
       false;
     }
 
-    return props.setValidation;
     // check if ticket amount matches available spaces at selected area
     // console.log("selectedArea:", props.orderInfo.selectedArea);
     // return either true or false
@@ -89,10 +85,8 @@ function step1(props) {
         <h2>Select your tickets</h2>
         <h5>Note: There is a limit of 5 tickets per customer.</h5>
 
-
         <InputCounter updateRegTickets={props.updateRegTickets} title={"Regular"} name={"RegTicket"} subtitle={"All days"} description={"Access to concerts and vendors."} price={"799,-"} setTickets={props.setTickets} />
         <InputCounter updateVIPTickets={props.updateVIPTickets} title={"VIP"} name={"VIPTicket"} subtitle={"All days"} description={"Includes food & drink discounts and early access to stages."} price={"1299,-"} />
-
 
         <h2>Select your camp area</h2>
         <h5>Each ticket counts for one space in a camp area.</h5>
