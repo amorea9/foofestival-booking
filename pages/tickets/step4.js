@@ -9,12 +9,11 @@ import MobileOrderOverview from "../../components/MobileOrderOverview";
 let cardFlag = false;
 let expiryFlag = false;
 let cvcFlag = false;
-let phoneFlag = false;
 let submitFlag = false;
 
 function step4() {
   function verify(event) {
-    console.log("verification","cardFlag: ", cardFlag, "expiryFlag: ", expiryFlag,"cvcFlag: ", cvcFlag, "phoneFlag: ", phoneFlag, "submitFlag: ", submitFlag )
+    console.log("verification","cardFlag: ", cardFlag, "expiryFlag: ", expiryFlag,"cvcFlag: ", cvcFlag, "submitFlag: ", submitFlag )
     
     if (event.target.name === "cardNo") {
       if (event.target.value.match(/^[0-9]{12}?$/)){
@@ -36,20 +35,13 @@ function step4() {
       } else {
         console.log("verification of cvc failed: ", event.target.value)
       }
-
-    } else if (event.target.name === "phone") {
-      if (event.target.value.match(/^[1-9]\d{1,14}?$/)){
-        phoneFlag = true;
-      } else {
-        console.log("verification of phone number failed: ", event.target.value)
-      }
     }
   }
 
   function shallPass(event) {
     event.preventDefault()
     console.log("shallPass function run")
-    if (cardFlag && expiryFlag && cvcFlag && phoneFlag){
+    if (cardFlag && expiryFlag && cvcFlag){
       submitFlag = true;
       console.log("passed")
       console.log(submitFlag)
