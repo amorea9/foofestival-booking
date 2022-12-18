@@ -31,33 +31,38 @@ function step1(props) {
     // console.log(chosenArea);
 
     if (props.orderInfo.selectedArea == "Svartheim") {
-      if (props.orderInfo.totalTickets <= areaArray[0].available) {
-        console.log("all good");
+      {
+        props.orderInfo.totalTickets <= areaArray[0].available ? true : false;
+      }
+      {
+        props.orderInfo.totalTickets <= areaArray[0].available ? console.log("all good") : console.log("no bueno");
       }
     }
-
-    // neither of these methods are working and i'm tired
-
     if (props.orderInfo.selectedArea == "Nilfheim") {
       {
-        props.orderInfo.totalTickets <= areaArray[1].available ? console.log("all good") : console.log("choose another area");
+        props.orderInfo.totalTickets <= areaArray[1].available ? true : false;
       }
     }
     if (props.orderInfo.selectedArea == "Helheim") {
       {
-        props.orderInfo.totalTickets <= areaArray[2].available ? console.log("all good") : console.log("choose another area");
+        props.orderInfo.totalTickets <= areaArray[2].available ? true : false;
       }
     }
+
     if (props.orderInfo.selectedArea == "Muspelheim") {
       {
-        props.orderInfo.totalTickets <= areaArray[3].available ? console.log("all good") : console.log("choose another area");
+        props.orderInfo.totalTickets <= areaArray[3].available ? true : false;
       }
     }
     if (props.orderInfo.selectedArea == "Alfheim") {
       {
-        props.orderInfo.totalTickets <= areaArray[4].available ? console.log("all good") : console.log("choose another area");
+        props.orderInfo.totalTickets <= areaArray[4].available ? true : false;
       }
+    } else {
+      false;
     }
+
+    return props.setValidation;
     // check if ticket amount matches available spaces at selected area
     // console.log("selectedArea:", props.orderInfo.selectedArea);
     // return either true or false
@@ -93,8 +98,8 @@ function step1(props) {
       {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />}
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} />
-        <Button buttonType={"primary"} buttonText={"Select camp options →"} action={validateArea} />
-        {/* <Button buttonType={"primary"} buttonText={"Select camp options →"} href={"/tickets/step2"} /> */}
+        {/* <Button buttonType={"primary"} buttonText={"Select camp options →"} action={validateArea} /> */}
+        <Button buttonType={"primary"} buttonText={"Select camp options →"} href={"/tickets/step2"} action={validateArea} orderInfo={props.orderInfo} />
       </div>
       {/* <button onClick={validateArea}>Validate area</button> */}
     </div>
