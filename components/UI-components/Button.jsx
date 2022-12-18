@@ -1,4 +1,3 @@
-import React, { useCallback } from "react";
 import { useRouter } from "next/router";
 
 function Button(props) {
@@ -6,8 +5,8 @@ function Button(props) {
 
   function passOrNot() {
     console.log(props.orderInfo.validates);
-    if (props.orderInfo.validates === true) {
-      console.log("validates");
+    if (props.orderInfo.validates === true || props.orderInfo.validates === undefined) {
+      console.log("you go girl");
       router.push(props.href);
     }
     if (props.orderInfo.validates === false) {
