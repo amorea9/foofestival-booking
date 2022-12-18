@@ -13,9 +13,10 @@ function MyApp({ Component, pageProps }) {
     selectedArea: "",
     tentService: false,
     greenCamping: false,
-    timedOut: false,
     totalCost: 0,
+    timedOut: false,
     validates: false,
+    orderID: "",
   });
 
   //everytime either reg tickets or vip tickets are updated, update total tickets too
