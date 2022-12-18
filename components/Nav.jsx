@@ -4,13 +4,15 @@ import Logo from "../assets/foofest-logo.png";
 import Image from "next/image";
 import Link from "next/link";
 
-function Nav() {
+function Nav(props) {
   return (
     <nav>
       <Link href={"/"}>
         <Image src={Logo} alt="Foofest logo" className="logo" />
       </Link>
-      <Button href={"/tickets/step1"} buttonType={"primary"} buttonText={"Get tickets"}></Button>
+      <Link href={"/tickets/step1"} className={"primary"}>
+        Get tickets
+      </Link>
     </nav>
   );
 }

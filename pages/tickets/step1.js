@@ -115,7 +115,7 @@ function step1(props) {
       </section>
       {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />}
       <div className="booking-steps-buttons">
-        <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} />
+        <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} orderInfo={props.orderInfo} />
         {/* <Button buttonType={"primary"} buttonText={"Select camp options →"} action={validateArea} /> */}
         <Button buttonType={"primary"} buttonText={"Select camp options →"} href={"/tickets/step2"} action={validateArea} orderInfo={props.orderInfo} />
       </div>
