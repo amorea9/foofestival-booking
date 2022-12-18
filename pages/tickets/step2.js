@@ -8,6 +8,7 @@ import MobileOrderOverview from "../../components/MobileOrderOverview";
 
 function step2(props) {
   // const ticketAmount = amount of requested tickets from previous step
+
   const tickets = props.orderInfo.totalTickets;
   console.log("step 2 tot tickets", props.orderInfo.totalTickets);
 
@@ -16,8 +17,10 @@ function step2(props) {
   // 3 person tent (including the tent) 399,-
   // The number of tents must match the number of people in the group (number of tickets).
 
+
   // order overview responsiveness
   const matches = useMediaQuery("(min-width: 1100px)");
+
 
   return (
     <div className="order-container">
@@ -26,9 +29,11 @@ function step2(props) {
         <h2>Tent options</h2>
         <h5>These are optional add-ons to improve your festival experience.</h5>
 
+
         <InputCheck tentSetUp={props.tentSetUp} title={"We can set up your tent(s)"} name={"TentSetup"} subtitle={props.tentSize} description={"Tents are included in price."} price={`${props.setUpPrice},-`} />
 
         <InputCheck tentGreen={props.tentGreen} title={"Green camping"} name={"TentGreen"} subtitle={"Sustainable tents"} description={"Tent made from recycled materials."} price={`${props.tentPrice},-`} />
+
         <p>
           <strong>NOTE:</strong> A mandatory booking fee of 99,- applies for each order.
         </p>
