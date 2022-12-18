@@ -24,8 +24,8 @@ function InputCheck(props) {
           </div>
         ) : (
           <div className="checkbox-container">
-            <input type="checkbox" className="hidden" id="checkbox" onChange={props.tentGreen} />
-            <label htmlFor="checkbox" className="checkbox-label"></label>
+            <input type="checkbox" className="hidden" id="checkbox2" onChange={props.tentGreen} />
+            <label htmlFor="checkbox2" className="checkbox-label"></label>
           </div>
         )}
       </div>

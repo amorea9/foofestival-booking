@@ -593,6 +593,16 @@ select {
     opacity: 1;
     transform: rotate(45deg) scale(1);
   }
+
+  #checkbox2:checked ~ .checkbox-label {
+    border-color: $orange;
+    background: $black;
+  }
+  
+  #checkbox2:checked ~ .checkbox-label::after {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+  }
 }
 
 // BOOKING STEPS - ORDER OVERVIEW
