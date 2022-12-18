@@ -6,20 +6,16 @@ import { useEffect, useState } from "react";
 function MyApp({ Component, pageProps }) {
   // global object for the user's order
   const [orderInfo, setOrderInfo] = useState({
-
-
     vipTickets: 0,
     regTickets: 0,
     totalTickets: 0,
-
 
     selectedArea: "",
     tentService: false,
     greenCamping: false,
     timedOut: false,
-    totalCost: 0
+    totalCost: 0,
   });
-
 
   //everytime either reg tickets or vip tickets are updated, update total tickets too
   useEffect(() => {
@@ -35,7 +31,6 @@ function MyApp({ Component, pageProps }) {
     let tickReg = event;
     console.log("regular", tickReg);
     setOrderInfo({ ...orderInfo, regTickets: tickReg });
-
   }
   // function totalTickets(){
   //   let total = orderInfo.vipTickets + orderInfo.regTickets;
@@ -111,3 +106,12 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+// // FETCTHING AREA DATA
+// export async function getServerSideProps() {
+//   const res = await fetch("http://localhost:8080/available-spots");
+//   const areaData = await res.json();
+//   return {
+//     props: { areaData },
+//   };
+// }
