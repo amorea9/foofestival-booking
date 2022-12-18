@@ -20,6 +20,16 @@ function step1(props) {
 
   // validate - compare selected amount of tickets to area space
   function validateArea() {
+    // filtering to find chosen area
+    // let chosenArea = areaNames.filter(areaFilter);
+    // function areaFilter(area) {
+    //   if (props.orderInfo.selectedArea == area) {
+    //     return true;
+    //   }
+    //   return false;
+    // }
+    // console.log(chosenArea);
+
     if (props.orderInfo.selectedArea == "Svartheim") {
       if (props.orderInfo.totalTickets <= areaArray[0].available) {
         console.log("all good");
@@ -83,9 +93,10 @@ function step1(props) {
       {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />}
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} />
-        <Button buttonType={"primary"} buttonText={"Select camp options →"} href={"/tickets/step2"} />
+        <Button buttonType={"primary"} buttonText={"Select camp options →"} action={validateArea} />
+        {/* <Button buttonType={"primary"} buttonText={"Select camp options →"} href={"/tickets/step2"} /> */}
       </div>
-      <button onClick={validateArea}>Validate area</button>
+      {/* <button onClick={validateArea}>Validate area</button> */}
     </div>
   );
 }

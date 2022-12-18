@@ -1,11 +1,19 @@
 import React from "react";
 import Link from "next/link";
 
-function Button({ buttonType, buttonText, href }) {
+function Button({ buttonType, buttonText, href, action }) {
   return (
-    <Link href={href} className={buttonType}>
-      {buttonText}
-    </Link>
+    <>
+      {action === undefined ? (
+        <Link href={href} className={buttonType}>
+          {buttonText}
+        </Link>
+      ) : (
+        <button onClick={action} className={buttonType}>
+          {buttonText}
+        </button>
+      )}
+    </>
   );
 }
 
