@@ -10,7 +10,6 @@ function step2(props) {
   // const ticketAmount = amount of requested tickets from previous step
 
   const tickets = props.orderInfo.totalTickets;
-  console.log("step 2 tot tickets", props.orderInfo.totalTickets);
 
   // Optional, pay to have the crew set up X tents for you.
   // 2 person tent (including the tent) 299,-
