@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
     timedOut: false,
     validates: false,
     orderID: "",
+    guests: [],
   });
 
   //everytime either reg tickets or vip tickets are updated, update total tickets too
@@ -73,7 +74,7 @@ function MyApp({ Component, pageProps }) {
     tentSize = "2-person tent";
   }
 
-  console.log("order info", orderInfo);
+  //console.log("order info", orderInfo);
 
   const selectArea = (e) => {
     setOrderInfo({
@@ -105,6 +106,7 @@ function MyApp({ Component, pageProps }) {
           tentPrice={tentPrice}
           setUpPrice={setUpPrice}
           tentSize={tentSize}
+          setOrderInfo={setOrderInfo}
           setValidation={setValidation}
         />
       </Layout>
