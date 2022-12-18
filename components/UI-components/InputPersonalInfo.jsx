@@ -1,6 +1,9 @@
 import React from "react";
 import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, AccordionItemPanel } from "react-accessible-accordion";
 
+import { useRef } from "react";
+
+
 // TICKETINFO - personal info form for each person's ticket
 // check which type is being requested and return based on this
 
@@ -9,8 +12,27 @@ import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, Ac
 //create AccordionItem * vipTickets
 
 // NPM INSTALL ACCORDION?
+//DON'T USE THIS COMPONENT, OLD STUFF!
+//DON'T USE THIS COMPONENT, OLD STUFF!
+//DON'T USE THIS COMPONENT, OLD STUFF!
+//DON'T USE THIS COMPONENT, OLD STUFF!
+//DON'T USE THIS COMPONENT, OLD STUFF!
+//DON'T USE THIS COMPONENT, OLD STUFF!
 
 function InputPersonalInfo(props) {
+
+  function onChange(event) {
+    console.log(event.target.name, "was changed to: ", event.target.value);
+  }
+
+  return (
+    <Accordion allowZeroExpanded>
+      <AccordionItem>
+        <AccordionItemHeading>
+          <AccordionItemButton>
+            <h2>Person #</h2>
+            <h3>Regular ticket</h3>
+
   const regAccordions = [];
   const vipAccordions = [];
   let regTotal = props.orderInfo.regTickets;
@@ -70,6 +92,7 @@ function InputPersonalInfo(props) {
               <h3>Regular ticket</h3>
               <h4 className="dropdown-arrow">‹</h4>
             </div>
+
           </AccordionItemButton>
         </AccordionItemHeading>
 
