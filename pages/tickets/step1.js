@@ -23,14 +23,13 @@ function step1(props) {
 
   // fetched area data
   const areaArray = props.areaData;
-  let areaNames = ["Svartheim", "Nilfheim", "Helheim", "Muspelheim", "Alfheim"];
-
   // order overview responsiveness
   const matches = useMediaQuery("(min-width: 1100px)");
 
   // validate - compare selected amount of tickets to area space
   function validateArea() {
     // filtering to find chosen area
+    // let areaNames = ["Svartheim", "Nilfheim", "Helheim", "Muspelheim", "Alfheim"];
     // let chosenArea = areaNames.filter(areaFilter);
     // function areaFilter(area) {
     //   if (props.orderInfo.selectedArea == area) {
@@ -50,32 +49,41 @@ function step1(props) {
       }
     }
     if (props.orderInfo.selectedArea == "Nilfheim") {
-      {
-        props.orderInfo.totalTickets <= areaArray[1].available ? true : false;
+      if (props.orderInfo.totalTickets <= areaArray[1].available) {
+        props.setOrderInfo({ ...props.orderInfo, validates: true });
+        console.log("all good");
+      } else {
+        props.setOrderInfo({ ...props.orderInfo, validates: false });
+        console.log("no bueno");
       }
     }
     if (props.orderInfo.selectedArea == "Helheim") {
-      {
-        props.orderInfo.totalTickets <= areaArray[2].available ? true : false;
+      if (props.orderInfo.totalTickets <= areaArray[2].available) {
+        props.setOrderInfo({ ...props.orderInfo, validates: true });
+        console.log("all good");
+      } else {
+        props.setOrderInfo({ ...props.orderInfo, validates: false });
+        console.log("no bueno");
       }
     }
-
     if (props.orderInfo.selectedArea == "Muspelheim") {
-      {
-        props.orderInfo.totalTickets <= areaArray[3].available ? true : false;
+      if (props.orderInfo.totalTickets <= areaArray[3].available) {
+        props.setOrderInfo({ ...props.orderInfo, validates: true });
+        console.log("all good");
+      } else {
+        props.setOrderInfo({ ...props.orderInfo, validates: false });
+        console.log("no bueno");
       }
     }
     if (props.orderInfo.selectedArea == "Alfheim") {
-      {
-        props.orderInfo.totalTickets <= areaArray[4].available ? true : false;
+      if (props.orderInfo.totalTickets <= areaArray[4].available) {
+        props.setOrderInfo({ ...props.orderInfo, validates: true });
+        console.log("all good");
+      } else {
+        props.setOrderInfo({ ...props.orderInfo, validates: false });
+        console.log("no bueno");
       }
-    } else {
-      false;
     }
-
-    // check if ticket amount matches available spaces at selected area
-    // console.log("selectedArea:", props.orderInfo.selectedArea);
-    // return either true or false
   }
 
   return (
