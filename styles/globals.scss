@@ -167,6 +167,7 @@ footer {
 // BUTTONS
 .primary {
   border: $border;
+  background-color: $black;
   padding: 0.5rem;
   padding-inline: 1rem;
   text-transform: uppercase;
@@ -182,6 +183,7 @@ footer {
 
 .secondary {
   border: $border;
+  background-color: $black;
   padding: 0.5rem;
   padding-inline: 1rem;
   text-transform: uppercase;
@@ -203,6 +205,7 @@ footer {
 .primary:hover {
   border-color: $orange;
   transition: all 0.4s ease-in;
+  cursor: pointer;
 }
 
 .primary::after {
@@ -226,6 +229,7 @@ footer {
   border-color: $orange;
   color: $white;
   transition: all 0.4s ease-in;
+  cursor: pointer;
 }
 
 //INPUT FIELDS
@@ -594,7 +598,7 @@ select {
     border-color: $orange;
     background: $black;
   }
-
+  
   #checkbox2:checked ~ .checkbox-label::after {
     opacity: 1;
     transform: rotate(45deg) scale(1);

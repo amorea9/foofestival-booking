@@ -3,13 +3,16 @@ import React from "react";
 let setUp = false;
 let green = false;
 
+
 function InputCheck(props) {
+
   return (
     <div className="input-box box">
       <div className="input-text">
         <h3>{props.title}</h3>
         <h4>{props.subtitle}</h4>
         <p>{props.description}</p>
+
       </div>
 
       <div className="price-input">
@@ -21,7 +24,7 @@ function InputCheck(props) {
           </div>
         ) : (
           <div className="checkbox-container">
-            <input name={props.name} type="checkbox" className="hidden" id="checkbox2" onChange={props.tentGreen} />
+            <input type="checkbox" className="hidden" id="checkbox2" onChange={props.tentGreen} />
             <label htmlFor="checkbox2" className="checkbox-label"></label>
           </div>
         )}

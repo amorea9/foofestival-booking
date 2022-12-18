@@ -6,20 +6,19 @@ import { useEffect, useState } from "react";
 function MyApp({ Component, pageProps }) {
   // global object for the user's order
   const [orderInfo, setOrderInfo] = useState({
-
-
     vipTickets: 0,
     regTickets: 0,
     totalTickets: 0,
 
-
     selectedArea: "",
     tentService: false,
     greenCamping: false,
+    totalCost: 0,
     timedOut: false,
-    totalCost: 0
+    validates: false,
+    orderID: "",
+    guests: [],
   });
-
 
   //everytime either reg tickets or vip tickets are updated, update total tickets too
   useEffect(() => {
@@ -35,7 +34,6 @@ function MyApp({ Component, pageProps }) {
     let tickReg = event;
     console.log("regular", tickReg);
     setOrderInfo({ ...orderInfo, regTickets: tickReg });
-
   }
   // function totalTickets(){
   //   let total = orderInfo.vipTickets + orderInfo.regTickets;
@@ -78,7 +76,7 @@ function MyApp({ Component, pageProps }) {
     tentSize = "2-person tent";
   }
 
-  console.log("order info", orderInfo);
+  //console.log("order info", orderInfo);
 
   const selectArea = (e) => {
     setOrderInfo({
@@ -86,6 +84,10 @@ function MyApp({ Component, pageProps }) {
       selectedArea: e.target.value,
     });
   };
+
+  function setValidation(result) {
+    setOrderInfo({ ...orderInfo, validates: result });
+  }
 
   //when the "next" button is clicked
   //TODO: hookup reserve a spot. checks for selected area into state
@@ -106,6 +108,8 @@ function MyApp({ Component, pageProps }) {
           tentPrice={tentPrice}
           setUpPrice={setUpPrice}
           tentSize={tentSize}
+          setOrderInfo={setOrderInfo}
+          setValidation={setValidation}
         />
       </Layout>
     </>
@@ -113,3 +117,12 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+// // FETCTHING AREA DATA
+// export async function getServerSideProps() {
+//   const res = await fetch("http://localhost:8080/available-spots");
+//   const areaData = await res.json();
+//   return {
+//     props: { areaData },
+//   };
+// }
