@@ -1,14 +1,18 @@
 import React from "react";
 import OrderOverview from "../../components/OrderOverview";
 import StepIndicator from "../../components/UI-components/StepIndicator";
-import Button from "../../components/UI-components/Button";
-import InputPersonalInfo from "../../components/UI-components/InputPersonalInfo";
 import { useMediaQuery } from "usehooks-ts";
 import MobileOrderOverview from "../../components/MobileOrderOverview";
 import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, AccordionItemPanel } from "react-accessible-accordion";
 import { useRef } from "react";
+import { useRouter } from "next/router";
 
 function step3(props) {
+  // order overview responsiveness
+  const matches = useMediaQuery("(min-width: 1100px)");
+  // routing
+  const router = useRouter();
+
   const theForm = useRef(null);
   const ticketHolders = [];
   const guestsArray = [...Array(props.orderInfo.totalTickets)];
@@ -37,15 +41,14 @@ function step3(props) {
       const response = await props.setOrderInfo({ ...props.orderInfo, guests: ticketHolders });
     }
     console.log("ticketHolders array", ticketHolders);
+    // navigate to next page
+    router.push("/tickets/step4");
   }
-  // console.log("ticketHolders in info order", props.orderInfo.guests);
 
-  // const ticketAmount = amount of requested tickets from previous step
-  // number of <InputPersonalInfo/> fields based on number of tickets
-  // const setupPrice = base fee + fee for each additional person
-
-  // order overview responsiveness
-  const matches = useMediaQuery("(min-width: 1100px)");
+  // BUTTONS - go to back previous page
+  function goBack() {
+    router.push("/tickets/step2");
+  }
 
   return (
     <form onSubmit={submit} ref={theForm}>
@@ -98,9 +101,17 @@ function step3(props) {
         ) : (
           <MobileOrderOverview orderInfo={props.orderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
         )}
-        <div className="booking-steps-buttons">
+        {/* <div className="booking-steps-buttons">
           <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step2"} orderInfo={props.orderInfo} />
           <Button buttonType={"primary"} buttonText={"Continue to payment →"} href={"/tickets/step4"} action={submit} orderInfo={props.orderInfo} />
+        </div> */}
+        <div className="booking-steps-buttons">
+          <button className="secondary" onClick={goBack}>
+            Back
+          </button>
+          <button className="primary" onClick={submit}>
+            Continue to payment →
+          </button>
         </div>
       </div>
     </form>
