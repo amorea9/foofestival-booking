@@ -2,22 +2,25 @@ import React from "react";
 import OrderOverview from "../../components/OrderOverview";
 import StepIndicator from "../../components/UI-components/StepIndicator";
 import InputCheck from "../../components/UI-components/InputCheck";
-import Button from "../../components/UI-components/Button";
 import { useMediaQuery } from "usehooks-ts";
 import MobileOrderOverview from "../../components/MobileOrderOverview";
+import { useRouter } from "next/router";
 
 function step2(props) {
-  // const ticketAmount = amount of requested tickets from previous step
-
-  const tickets = props.orderInfo.totalTickets;
-
-  // Optional, pay to have the crew set up X tents for you.
-  // 2 person tent (including the tent) 299,-
-  // 3 person tent (including the tent) 399,-
-  // The number of tents must match the number of people in the group (number of tickets).
-
   // order overview responsiveness
   const matches = useMediaQuery("(min-width: 1100px)");
+  // routing
+  const router = useRouter();
+
+  // BUTTONS - go to next page
+  function nextStep() {
+    router.push("/tickets/step3");
+  }
+
+  // BUTTONS - go to back previous page
+  function goBack() {
+    router.push("/tickets/step1");
+  }
 
   return (
     <div className="order-container">
@@ -39,9 +42,17 @@ function step2(props) {
       ) : (
         <MobileOrderOverview orderInfo={props.orderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
       )}
+      {/* <div className="booking-steps-buttons"> */}
+      {/* <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step1"} orderInfo={props.orderInfo} />
+        <Button buttonType={"primary"} buttonText={"Continue to details →"} href={"/tickets/step3"} orderInfo={props.orderInfo} /> */}
+      {/* </div> */}
       <div className="booking-steps-buttons">
-        <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step1"} orderInfo={props.orderInfo} />
-        <Button buttonType={"primary"} buttonText={"Continue to details →"} href={"/tickets/step3"} orderInfo={props.orderInfo} />
+        <button className="secondary" onClick={goBack}>
+          Back
+        </button>
+        <button className="primary" onClick={nextStep}>
+          Continue to details →
+        </button>
       </div>
     </div>
   );
