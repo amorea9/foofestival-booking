@@ -14,7 +14,6 @@ function MyApp({ Component, pageProps }) {
     tentService: false,
     greenCamping: false,
     totalCost: 0,
-    timedOut: false,
     validates: null,
     orderID: "",
     guests: [],

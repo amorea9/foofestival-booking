@@ -6,6 +6,7 @@ import MobileOrderOverview from "../../components/MobileOrderOverview";
 import { useMediaQuery } from "usehooks-ts";
 import InputMask from "react-input-mask";
 import { useRouter } from "next/router";
+import { insertOrder } from "../../modules/db";
 
 function step4(props) {
   // order overview responsiveness
@@ -25,11 +26,20 @@ function step4(props) {
     const response = await request.json();
     const message = response.message;
 
-    //   // const payload = insert json here?
+    const payload = {
+      totalTickets: props.orderInfo.totalTickets,
+      regTickets: props.orderInfo.regTickets,
+      vipTickets: props.orderInfo.vipTickets,
+      selectedArea: props.orderInfo.selectedArea,
+      tentService: props.orderInfo.tentService,
+      greenCamping: props.orderInfo.greenCamping,
+      guestInfo: props.orderInfo.guests,
+    };
 
     if (message === "Reservation completed") {
       router.push("/tickets/confirmation");
-      // postOrderInfo(payload);
+      const response = await insertOrder(payload);
+      console.log("database response:", response);
     }
     if (message === "ID not found") {
       router.push("/tickets/timeout");
