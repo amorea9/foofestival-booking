@@ -3,7 +3,6 @@ import OrderOverview from "../../components/OrderOverview";
 import StepIndicator from "../../components/UI-components/StepIndicator";
 import InputCounter from "../../components/UI-components/InputCounter";
 import InputDrop from "../../components/UI-components/InputDrop";
-import Button from "../../components/UI-components/Button";
 import { useMediaQuery } from "usehooks-ts";
 import MobileOrderOverview from "../../components/MobileOrderOverview";
 import { useRouter } from "next/router";
