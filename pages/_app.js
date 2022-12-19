@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
     greenCamping: false,
     totalCost: 0,
     timedOut: false,
-    validates: false,
+    validates: null,
     orderID: "",
     guests: [],
   });
