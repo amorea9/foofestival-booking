@@ -76,7 +76,8 @@ function step1(props) {
         props.setOrderInfo({ ...props.orderInfo, validates: false });
         console.log("area validation: no bueno");
       }
-    } else {
+    }
+    if (props.orderInfo.selectedArea == "") {
       props.setOrderInfo({ ...props.orderInfo, validates: false });
       console.log("area validation: no bueno");
     }
