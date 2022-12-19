@@ -598,7 +598,7 @@ select {
     border-color: $orange;
     background: $black;
   }
-  
+
   #checkbox2:checked ~ .checkbox-label::after {
     opacity: 1;
     transform: rotate(45deg) scale(1);
@@ -689,6 +689,14 @@ select {
   text-align: center;
   justify-items: center;
   gap: 1rem;
+}
+
+// FEEDBACK MESSAGES
+.feedback {
+  margin-top: 1rem;
+  border: $border;
+  border-color: $orange;
+  padding: 1rem;
 }
 
 // MEDIA QUERIES

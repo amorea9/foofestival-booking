@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
     greenCamping: false,
     totalCost: 0,
     timedOut: false,
-    validates: false,
+    validates: null,
     orderID: "",
     guests: [],
   });
@@ -85,10 +85,12 @@ function MyApp({ Component, pageProps }) {
     });
   };
 
-  //when the "next" button is clicked
-  //TODO: hookup reserve a spot. checks for selected area into state
-  //TODO: filter for area in "reserve" endpoint that's the same as selectedArea
-  //TODO: if the spots are >= the tickets number then reserve it -> start timer
+  // ORDER ID
+  function setOrderID(id) {
+    console.log("setOrderID has this id:", id);
+    setOrderInfo({ ...orderInfo, orderID: id });
+    console.log("orderID is set to:", orderInfo.orderID);
+  }
 
   return (
     <>
@@ -105,6 +107,7 @@ function MyApp({ Component, pageProps }) {
           setUpPrice={setUpPrice}
           tentSize={tentSize}
           setOrderInfo={setOrderInfo}
+          setOrderID={setOrderID}
         />
       </Layout>
     </>

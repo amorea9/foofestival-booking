@@ -20,57 +20,66 @@ function step1(props) {
   const router = useRouter();
 
   async function validateAndReserve() {
-    await reserveSpot(props.orderInfo.selectedArea, props.orderInfo.totalTickets);
-    validateArea();
-    passOrNot();
+    const id = await reserveSpot(props.orderInfo.selectedArea, props.orderInfo.totalTickets);
+    // props.setOrderInfo({ ...props.orderInfo, orderID: id });
+    await validateArea(id);
   }
 
   // validate - compare selected amount of tickets to area space
-  function validateArea() {
+  async function validateArea(id) {
     if (props.orderInfo.selectedArea == "Svartheim") {
       if (props.orderInfo.totalTickets <= areaArray[0].available) {
-        props.setOrderInfo({ ...props.orderInfo, validates: true });
-        console.log("all good");
+        props.setOrderInfo({ ...props.orderInfo, validates: true, orderID: id });
+        console.log("area validation: all good");
+        router.push("/tickets/step2");
       } else {
         props.setOrderInfo({ ...props.orderInfo, validates: false });
-        console.log("no bueno");
+        console.log("area validation: no bueno");
       }
     }
     if (props.orderInfo.selectedArea == "Nilfheim") {
       if (props.orderInfo.totalTickets <= areaArray[1].available) {
-        props.setOrderInfo({ ...props.orderInfo, validates: true });
-        console.log("all good");
+        props.setOrderInfo({ ...props.orderInfo, validates: true, orderID: id });
+        console.log("area validation: all good");
+        router.push("/tickets/step2");
       } else {
         props.setOrderInfo({ ...props.orderInfo, validates: false });
-        console.log("no bueno");
+        console.log("area validation: no bueno");
       }
     }
     if (props.orderInfo.selectedArea == "Helheim") {
       if (props.orderInfo.totalTickets <= areaArray[2].available) {
-        props.setOrderInfo({ ...props.orderInfo, validates: true });
-        console.log("all good");
+        props.setOrderInfo({ ...props.orderInfo, validates: true, orderID: id });
+        console.log("area validation: all good");
+        router.push("/tickets/step2");
       } else {
         props.setOrderInfo({ ...props.orderInfo, validates: false });
-        console.log("no bueno");
+        console.log("area validation: no bueno");
       }
     }
     if (props.orderInfo.selectedArea == "Muspelheim") {
       if (props.orderInfo.totalTickets <= areaArray[3].available) {
-        props.setOrderInfo({ ...props.orderInfo, validates: true });
-        console.log("all good");
+        props.setOrderInfo({ ...props.orderInfo, validates: true, orderID: id });
+        console.log("area validation: all good");
+        router.push("/tickets/step2");
       } else {
         props.setOrderInfo({ ...props.orderInfo, validates: false });
-        console.log("no bueno");
+        console.log("area validation: no bueno");
       }
     }
     if (props.orderInfo.selectedArea == "Alfheim") {
       if (props.orderInfo.totalTickets <= areaArray[4].available) {
-        props.setOrderInfo({ ...props.orderInfo, validates: true });
-        console.log("all good");
+        props.setOrderInfo({ ...props.orderInfo, validates: true, orderID: id });
+        console.log("area validation: all good");
+        router.push("/tickets/step2");
       } else {
         props.setOrderInfo({ ...props.orderInfo, validates: false });
-        console.log("no bueno");
+        console.log("area validation: no bueno");
       }
+    }
+    if (props.orderInfo.selectedArea == "") {
+      props.setOrderInfo({ ...props.orderInfo, validates: false });
+      console.log("area validation: no bueno");
     }
   }
 
@@ -87,27 +96,7 @@ function step1(props) {
     const response = await request.json();
     const id = response.id;
     console.log("id:", id);
-    // update orderID in state
-    setOrderID(id);
-  }
-
-  // ORDER ID
-  function setOrderID(id) {
-    // console.log(id);
-    props.setOrderInfo({ ...props.orderInfo, orderID: id });
-    console.log("orderID is set to:", props.orderInfo.orderID);
-  }
-
-  // BUTTONS - decide whether to reroute or not
-  function passOrNot() {
-    // console.log(props.orderInfo.validates);
-    if (props.orderInfo.validates === true || props.orderInfo.validates === undefined) {
-      console.log("you go girl");
-      router.push("/tickets/step2");
-    }
-    if (props.orderInfo.validates === false) {
-      console.log("you shall not pass");
-    }
+    return id;
   }
 
   // BUTTONS - go to back previous page
@@ -141,15 +130,9 @@ function step1(props) {
           optionFive={areaArray[4].area}
           optionFiveSpace={areaArray[4].available}
         />
+        {props.orderInfo.validates === false && <p className="feedback">Please select an area with enough space for the amount of tickets.</p>}
       </section>
       {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />}
-      {/* <div className="booking-steps-buttons">
-        <Button buttonType={"secondary"} buttonText={"Cancel"} href={"/"} orderInfo={props.orderInfo} />
-        <Button buttonType={"primary"} buttonText={"Select camp options →"} href={"/tickets/step2"} action={validateArea} orderInfo={props.orderInfo} />
-      </div> */}
-      {/* <button onClick={validateArea}>Validate area</button> */}
-
-      {/* TRYING BUTTONS IN ANOTHER WAY */}
       <div className="booking-steps-buttons">
         <button className="secondary" onClick={goBack}>
           Cancel
