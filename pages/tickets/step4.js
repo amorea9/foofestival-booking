@@ -3,15 +3,18 @@ import InputPaymentInfo from "../../components/UI-components/InputPaymentInfo";
 import StepIndicator from "../../components/UI-components/StepIndicator";
 import OrderOverview from "../../components/OrderOverview";
 import Button from "../../components/UI-components/Button";
-// import { useMediaQuery } from "usehooks-ts";
 import MobileOrderOverview from "../../components/MobileOrderOverview";
+import { useMediaQuery } from "usehooks-ts";
 
 let cardFlag = false;
 let expiryFlag = false;
 let cvcFlag = false;
 let submitFlag = false;
 
-function step4() {
+function step4(props) {
+  // order overview responsiveness
+  const matches = useMediaQuery("(min-width: 1100px)");
+
   function verify(event) {
     console.log("verification", "cardFlag: ", cardFlag, "expiryFlag: ", expiryFlag, "cvcFlag: ", cvcFlag, "submitFlag: ", submitFlag);
 
@@ -47,8 +50,7 @@ function step4() {
       console.log("failed");
     }
   }
-  // order overview responsiveness
-  // const matches = useMediaQuery("(min-width: 1100px)");
+
   return (
     <div className="order-container">
       <section className="order-interface">
@@ -57,10 +59,14 @@ function step4() {
         <h5>Please enter your payment information.</h5>
         <InputPaymentInfo verify={verify} shallPass={shallPass} />
       </section>
-      {/* {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />} */}
+      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />}
       <div className="booking-steps-buttons">
         <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step3"} orderInfo={props.orderInfo} />
-        {submitFlag && <Button buttonType={"primary"} buttonText={"Confirm & pay →"} href={"/tickets/confirmation"} orderInfo={props.orderInfo} />}
+        {/* {submitFlag && <Button buttonType={"primary"} buttonText={"Confirm & pay →"} href={"/tickets/confirmation"} orderInfo={props.orderInfo} />} */}
+
+        {/* MARIA'S ATTEMPT AT MAKING THINGS WORK - for now validation is being skipped so we can test  */}
+        {/* <Button buttonType={"primary"} buttonText={"Confirm & pay →"} href={"/tickets/confirmation"} action={shallPass} orderInfo={props.orderInfo} /> */}
+        <Button buttonType={"primary"} buttonText={"Confirm & pay →"} href={"/tickets/confirmation"} orderInfo={props.orderInfo} />
       </div>
     </div>
   );

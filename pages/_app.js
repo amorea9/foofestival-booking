@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
   // save regular and vip tickets in state
   function updateRegTickets(event) {
     let tickReg = event;
-    console.log("regular", tickReg);
+    // console.log("regular", tickReg);
     setOrderInfo({ ...orderInfo, regTickets: tickReg });
   }
   // function totalTickets(){
@@ -42,17 +42,17 @@ function MyApp({ Component, pageProps }) {
 
   function updateVIPTickets(event) {
     let tickVIP = event;
-    console.log("VIP", tickVIP);
+    // console.log("VIP", tickVIP);
     setOrderInfo({ ...orderInfo, vipTickets: tickVIP });
   }
 
   function tentSetUp(event) {
-    console.log("setup check: ", event.target)
+    console.log("setup check: ", event.target);
     let tentChoice = event.target.checked;
     setOrderInfo({ ...orderInfo, tentService: tentChoice });
   }
   function tentGreen(event) {
-    console.log("tentgreen check: ", event.target)
+    console.log("tentgreen check: ", event.target);
     let tentChoice = event.target.checked;
     setOrderInfo({ ...orderInfo, greenCamping: tentChoice });
   }
@@ -84,10 +84,6 @@ function MyApp({ Component, pageProps }) {
       selectedArea: e.target.value,
     });
   };
-
-  // function setValidation(result) {
-  //   setOrderInfo({ ...orderInfo, validates: result });
-  // }
 
   //when the "next" button is clicked
   //TODO: hookup reserve a spot. checks for selected area into state

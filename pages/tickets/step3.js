@@ -38,7 +38,7 @@ function step3(props) {
     }
     console.log("ticketHolders array", ticketHolders);
   }
-  console.log("ticketHolders in info order", props.orderInfo.guests);
+  // console.log("ticketHolders in info order", props.orderInfo.guests);
 
   // const ticketAmount = amount of requested tickets from previous step
   // number of <InputPersonalInfo/> fields based on number of tickets
@@ -99,9 +99,8 @@ function step3(props) {
           <MobileOrderOverview orderInfo={props.orderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
         )}
         <div className="booking-steps-buttons">
-          {/* <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step2"} /> */}
-          {/* <Button buttonType={"primary"} buttonText={"Continue to payment →"}href={"/tickets/step4"} /> */}
-          <button type="submit"> save</button>
+          <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step2"} orderInfo={props.orderInfo} />
+          <Button buttonType={"primary"} buttonText={"Continue to payment →"} href={"/tickets/step4"} action={submit} orderInfo={props.orderInfo} />
         </div>
       </div>
     </form>
