@@ -43,7 +43,7 @@ function InputPaymentInfo(props) {
         <div>
           <label htmlFor="form-address">
             Billing Address
-            <textarea required name="address" id="form-address" placeholder="John's House" />
+            <textarea required name="address" id="form-address" placeholder="Pearstreet 72, 2020 London" />
           </label>
         </div>
         {/* <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step3"} /> */}
