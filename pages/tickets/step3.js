@@ -5,8 +5,17 @@ import Button from "../../components/UI-components/Button";
 import InputPersonalInfo from "../../components/UI-components/InputPersonalInfo";
 import { useMediaQuery } from "usehooks-ts";
 import MobileOrderOverview from "../../components/MobileOrderOverview";
-import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, AccordionItemPanel } from "react-accessible-accordion";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from "react-accessible-accordion";
 import { useRef } from "react";
+
+let firstNameFlag = false;
+let submitFlag = false;
 
 function step3(props) {
   const theForm = useRef(null);
@@ -14,7 +23,6 @@ function step3(props) {
   const guestsArray = [...Array(props.orderInfo.totalTickets)];
 
   async function submit(e) {
-    e.preventDefault();
     if (props.orderInfo.totalTickets === 1) {
       const guest = {
         first: theForm.current.elements.firstName.value,
@@ -38,6 +46,19 @@ function step3(props) {
     }
     console.log("ticketHolders array", ticketHolders);
   }
+
+  //REI TRYING STUFF
+  function shallPassToNextStep(e) {
+    e.preventDefault();
+    submitFlag = true;
+    event.preventDefault();
+    console.log("shallPass function run");
+    console.log("passed");
+    console.log(submitFlag);
+    submit(e);
+  }
+
+  //REYMONDO TRYING STUFF ENDS
   // console.log("ticketHolders in info order", props.orderInfo.guests);
 
   // const ticketAmount = amount of requested tickets from previous step
@@ -48,7 +69,7 @@ function step3(props) {
   const matches = useMediaQuery("(min-width: 1100px)");
 
   return (
-    <form onSubmit={submit} ref={theForm}>
+    <form onSubmit={shallPassToNextStep} ref={theForm}>
       <div className="order-container">
         <section className="order-interface">
           <StepIndicator step={3} />
@@ -72,19 +93,50 @@ function step3(props) {
                   <div className="accordion-field">
                     <label>
                       First name
-                      <input type="text" name="firstName" placeholder="John" />
+                      <input
+                        title="Must be a valid First name"
+                        required
+                        pattern="[A-Za-z]{1,50}"
+                        aria-required="true"
+                        type="text"
+                        name="firstName"
+                        placeholder="John"
+                      />
                     </label>
                     <label>
                       Last name
-                      <input type="text" name="lastName" placeholder="Applebaum" />
+                      <input
+                        title="Must be a valid Last name"
+                        required
+                        pattern="[A-Za-z]{1,40}"
+                        aria-required="true"
+                        type="text"
+                        name="lastName"
+                        placeholder="Applebaum"
+                      />
                     </label>
                     <label>
                       Phone Number
-                      <input type="text" name="telephone" placeholder="+45 12345678" />
+                      <input
+                        title="Must be a valid phone number"
+                        required
+                        pattern="[0-9+]{8,18}"
+                        aria-required="true"
+                        type="text"
+                        name="telephone"
+                        placeholder="+45 12345678"
+                      />
                     </label>
                     <label>
                       Date of Birth
-                      <input type="date" name="birthDate" />
+                      <input
+                        title="Must be a valid Date of birth"
+                        required
+                        pattern="[0-9]"
+                        aria-required="true"
+                        type="date"
+                        name="birthDate"
+                      />
                     </label>
                     {/* NPM INSTALL SOMETHING FOR PHONE AND BIRTH DATE? */}
                   </div>
@@ -94,13 +146,36 @@ function step3(props) {
           ))}
         </section>
         {matches ? (
-          <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
+          <OrderOverview
+            orderInfo={props.orderInfo}
+            setOrderInfo={props.setOrderInfo}
+            tentPrice={props.tentPrice}
+            setUpPrice={props.setUpPrice}
+          />
         ) : (
           <MobileOrderOverview orderInfo={props.orderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
         )}
         <div className="booking-steps-buttons">
           <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step2"} orderInfo={props.orderInfo} />
-          <Button buttonType={"primary"} buttonText={"Continue to payment →"} href={"/tickets/step4"} action={submit} orderInfo={props.orderInfo} />
+          {submitFlag ? (
+            <Button
+              shallPassToNextStep={shallPassToNextStep}
+              buttonType={"primary"}
+              buttonText={"Continue to payment →"}
+              href={"/tickets/step4"}
+              /* action={submit} */
+              orderInfo={props.orderInfo}
+            />
+          ) : (
+            <Button
+              shallPassToNextStep={shallPassToNextStep}
+              buttonType={"primary"}
+              buttonText={"Continue to payment →"}
+              href={"/tickets/step3"}
+              action={submit}
+              orderInfo={props.orderInfo}
+            />
+          )}
         </div>
       </div>
     </form>
