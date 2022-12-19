@@ -7,20 +7,33 @@ import { useMediaQuery } from "usehooks-ts";
 import InputMask from "react-input-mask";
 import { useRouter } from "next/router";
 
-let cardFlag = false;
-let expiryFlag = false;
-let cvcFlag = false;
-let submitFlag = false;
-
 function step4(props) {
   // order overview responsiveness
   const matches = useMediaQuery("(min-width: 1100px)");
   // routing
   const router = useRouter();
 
-  // BUTTONS - decide whether to reroute or not
-  function confirm() {
-    router.push("/tickets/confirmation");
+  // BUTTONS - send reservation request & reroute
+  async function confirm() {
+    const request = await fetch("http://localhost:8080/fullfill-reservation", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: props.orderInfo.orderID }),
+    });
+    const response = await request.json();
+    const message = response.message;
+
+    //   // const payload = insert json here?
+
+    if (message === "Reservation completed") {
+      router.push("/tickets/confirmation");
+      // postOrderInfo(payload);
+    }
+    if (message === "ID not found") {
+      router.push("/tickets/timeout");
+    }
   }
 
   // BUTTONS - go to back previous page
@@ -29,6 +42,10 @@ function step4(props) {
   }
 
   // ---------- GARETH'S VERIFICATION ----------
+  // let cardFlag = false;
+  // let expiryFlag = false;
+  // let cvcFlag = false;
+  // let submitFlag = false;
   // function verify(event) {
   //   console.log("verification", "cardFlag: ", cardFlag, "expiryFlag: ", expiryFlag, "cvcFlag: ", cvcFlag, "submitFlag: ", submitFlag);
 
@@ -113,17 +130,14 @@ function step4(props) {
                 <textarea required name="address" id="form-address" placeholder="Pearstreet 72, 2020 London" />
               </label>
             </div>
-            {/* <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step3"} /> */}
-            {/* please style me!! */}
-            {/* <Button buttonType={"primary"} buttonText={"Submit"} onClick={props.shallPass} href={"#"} /> */}
           </form>
         </div>
       </section>
-      {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />}
-      {/* <div className="booking-steps-buttons"> */}
-      {/* <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step3"} orderInfo={props.orderInfo} /> */}
-      {/* {submitFlag && <Button buttonType={"primary"} buttonText={"Confirm & pay →"} href={"/tickets/confirmation"} orderInfo={props.orderInfo} />} */}
-      {/* </div> */}
+      {matches ? (
+        <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
+      ) : (
+        <MobileOrderOverview orderInfo={props.orderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
+      )}
       <div className="booking-steps-buttons">
         <button className="secondary" onClick={goBack}>
           Back

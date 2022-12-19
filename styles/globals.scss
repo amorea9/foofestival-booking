@@ -327,6 +327,7 @@ section {
   border: $border;
   margin-top: 1rem;
   padding: 1rem;
+  padding-bottom: 1.5rem;
   display: grid;
   row-gap: 1rem;
   form {
@@ -349,6 +350,17 @@ section {
         }
       }
     }
+  }
+  input,
+  textarea {
+    background-color: $black;
+    border: $border;
+    color: $white;
+    padding: 0.5rem;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: $grey;
   }
 }
 
@@ -538,7 +550,7 @@ section {
 
 // select drop down input
 .drop-box {
-  width: 60%;
+  width: 100%;
 }
 
 select {
@@ -743,5 +755,9 @@ select {
   .booking-steps-buttons {
     grid-column: 2 / -1;
     grid-row: 2 / -1;
+  }
+
+  .drop-box {
+    width: 60%;
   }
 }
