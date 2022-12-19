@@ -48,7 +48,7 @@ function InputPaymentInfo(props) {
         </div>
         {/* <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step3"} /> */}
         {/* please style me!! */}
-        <Button buttonType={"primary"} buttonText={"Submit"} onClick={props.shallPass} href={"#"} />
+        {/* <Button buttonType={"primary"} buttonText={"Submit"} onClick={props.shallPass} href={"#"} /> */}
       </form>
     </div>
   );

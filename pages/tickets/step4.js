@@ -64,8 +64,9 @@ function step4(props) {
         <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step3"} orderInfo={props.orderInfo} />
         {/* {submitFlag && <Button buttonType={"primary"} buttonText={"Confirm & pay →"} href={"/tickets/confirmation"} orderInfo={props.orderInfo} />} */}
 
-        {/* MARIA'S ATTEMPT AT MAKING THINGS WORK  */}
+        {/* MARIA'S ATTEMPT AT MAKING THINGS WORK - for now validation is being skipped so we can test  */}
         {/* <Button buttonType={"primary"} buttonText={"Confirm & pay →"} href={"/tickets/confirmation"} action={shallPass} orderInfo={props.orderInfo} /> */}
+        <Button buttonType={"primary"} buttonText={"Confirm & pay →"} href={"/tickets/confirmation"} orderInfo={props.orderInfo} />
       </div>
     </div>
   );

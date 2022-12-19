@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../components/UI-components/Button";
+import Link from "next/link";
 
 function timeout() {
   return (
