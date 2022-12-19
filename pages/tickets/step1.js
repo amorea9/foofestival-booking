@@ -129,7 +129,7 @@ function step1(props) {
           optionFive={areaArray[4].area}
           optionFiveSpace={areaArray[4].available}
         />
-        {props.orderInfo.validates === false && <p className="feedback orange">Please select an area with enough space for the amount of tickets.</p>}
+        {props.orderInfo.validates === false && <p className="feedback">Please select an area with enough space for the amount of tickets.</p>}
       </section>
       {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />}
       <div className="booking-steps-buttons">
