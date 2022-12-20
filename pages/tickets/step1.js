@@ -18,10 +18,18 @@ function step1(props) {
   const matches = useMediaQuery("(min-width: 1100px)");
   // routing
   const router = useRouter();
+  // tickets validation
+  let ticketsValid = false;
+
+  if (props.orderInfo.totalTickets > 0) {
+    ticketsValid = true;
+  }
+  if (props.orderInfo.totalTickets === 0) {
+    ticketsValid = false;
+  }
 
   async function validateAndReserve() {
     const id = await reserveSpot(props.orderInfo.selectedArea, props.orderInfo.totalTickets);
-    // props.setOrderInfo({ ...props.orderInfo, orderID: id });
     await validateArea(id);
   }
 
@@ -130,6 +138,7 @@ function step1(props) {
           optionFive={areaArray[4].area}
           optionFiveSpace={areaArray[4].available}
         />
+        {ticketsValid === false && <p className="feedback">Please add at least one ticket to your order.</p>}
         {props.orderInfo.validates === false && <p className="feedback">Please select an area with enough space for the amount of tickets.</p>}
       </section>
       {matches ? <OrderOverview orderInfo={props.orderInfo} setOrderInfo={props.setOrderInfo} /> : <MobileOrderOverview orderInfo={props.orderInfo} />}
