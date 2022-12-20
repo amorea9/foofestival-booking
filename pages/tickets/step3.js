@@ -45,7 +45,7 @@ function step3(props) {
     router.push("/tickets/step4");
   }
 
-  // BUTTONS - go to back previous page
+  // BUTTONS - go back to previous page
   function goBack() {
     router.push("/tickets/step2");
   }
@@ -63,8 +63,7 @@ function step3(props) {
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
-                    {/* insert name from firstName input */}
-                    <h3 className="white">Person {i + 1}</h3>
+                    <h3 className="white">Ticket {i + 1}</h3>
                     <div className="dropdown">
                       <h3>Regular ticket</h3>
                       <h4 className="dropdown-arrow">‹</h4>
@@ -75,21 +74,20 @@ function step3(props) {
                   <div className="accordion-field">
                     <label>
                       First name
-                      <input type="text" name="firstName" placeholder="John" />
+                      <input required type="text" name="firstName" placeholder="John" />
                     </label>
                     <label>
                       Last name
-                      <input type="text" name="lastName" placeholder="Applebaum" />
+                      <input required type="text" name="lastName" placeholder="Applebaum" />
                     </label>
                     <label>
                       Phone Number
-                      <input type="text" name="telephone" placeholder="+45 12345678" />
+                      <input required type="text" name="telephone" inputMode="numeric" placeholder="+45 12345678" />
                     </label>
                     <label>
                       Date of Birth
-                      <input type="date" name="birthDate" />
+                      <input required type="date" name="birthDate" />
                     </label>
-                    {/* NPM INSTALL SOMETHING FOR PHONE AND BIRTH DATE? */}
                   </div>
                 </AccordionItemPanel>
               </AccordionItem>
@@ -101,15 +99,11 @@ function step3(props) {
         ) : (
           <MobileOrderOverview orderInfo={props.orderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
         )}
-        {/* <div className="booking-steps-buttons">
-          <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step2"} orderInfo={props.orderInfo} />
-          <Button buttonType={"primary"} buttonText={"Continue to payment →"} href={"/tickets/step4"} action={submit} orderInfo={props.orderInfo} />
-        </div> */}
         <div className="booking-steps-buttons">
           <button className="secondary" onClick={goBack}>
             Back
           </button>
-          <button className="primary" onClick={submit}>
+          <button type="submit" className="primary" onClick={submit}>
             Continue to payment →
           </button>
         </div>
