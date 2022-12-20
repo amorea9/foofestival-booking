@@ -96,6 +96,7 @@ h5 {
   //insert alt from here
   content: "";
   position: absolute;
+  mix-blend-mode:lighten;
   height: 200vh;
   width: 200vw;
   background-image: url("../public/assets/fullImageWGrain.webp");
