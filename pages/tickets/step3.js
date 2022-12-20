@@ -74,19 +74,19 @@ function step3(props) {
                   <div className="accordion-field">
                     <label>
                       First name
-                      <input required type="text" name="firstName" placeholder="John" />
+                      <input title="Must be a valid First name" required pattern="[A-Za-z]{1,50}" aria-required="true" type="text" name="firstName" placeholder="John" />
                     </label>
                     <label>
                       Last name
-                      <input required type="text" name="lastName" placeholder="Applebaum" />
+                      <input title="Must be a valid Last name" required pattern="[A-Za-z]{1,40}" aria-required="true" type="text" name="lastName" placeholder="Applebaum" />
                     </label>
                     <label>
                       Phone Number
-                      <input required type="text" name="telephone" inputMode="numeric" placeholder="+45 12345678" />
+                      <input title="Must be a valid phone number" required pattern="[0-9+]{8,18}" aria-required="true" type="text" name="telephone" placeholder="+45 12345678" />
                     </label>
                     <label>
                       Date of Birth
-                      <input required type="date" name="birthDate" />
+                      <input title="Must be a valid Date of birth" required pattern="[0-9]" aria-required="true" type="date" name="birthDate" />
                     </label>
                   </div>
                 </AccordionItemPanel>
