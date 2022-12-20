@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "./UI-components/Button";
 import Logo from "../assets/foofest-logo.png";
 import Image from "next/image";
 import Link from "next/link";

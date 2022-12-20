@@ -3,7 +3,6 @@ import tiktok from "../public/icons/tiktok_icon.png";
 import facebook from "../public/icons/facebook_icon.png";
 import insta from "../public/icons/insta_icon.png";
 import Image from "next/image";
-//continue importing icons and get the working!
 
 function Footer() {
   return (

@@ -1,5 +1,4 @@
 import React from "react";
-import InputPaymentInfo from "../../components/UI-components/InputPaymentInfo";
 import StepIndicator from "../../components/UI-components/StepIndicator";
 import OrderOverview from "../../components/OrderOverview";
 import MobileOrderOverview from "../../components/MobileOrderOverview";

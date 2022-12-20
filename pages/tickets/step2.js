@@ -42,10 +42,6 @@ function step2(props) {
       ) : (
         <MobileOrderOverview orderInfo={props.orderInfo} tentPrice={props.tentPrice} setUpPrice={props.setUpPrice} />
       )}
-      {/* <div className="booking-steps-buttons"> */}
-      {/* <Button buttonType={"secondary"} buttonText={"Back"} href={"/tickets/step1"} orderInfo={props.orderInfo} />
-        <Button buttonType={"primary"} buttonText={"Continue to details →"} href={"/tickets/step3"} orderInfo={props.orderInfo} /> */}
-      {/* </div> */}
       <div className="booking-steps-buttons">
         <button className="secondary" onClick={goBack}>
           Back
