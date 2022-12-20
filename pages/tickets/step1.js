@@ -93,7 +93,7 @@ function step1(props) {
 
   // PUT request - booking reservation
   async function reserveSpot(chosenArea, chosenAmount) {
-    const request = await fetch("http://localhost:8080/reserve-spot", {
+    const request = await fetch("https://morning-mountain-4570.fly.dev/reserve-spot", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -158,7 +158,7 @@ export default step1;
 
 // FETCTHING AREA DATA
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:8080/available-spots");
+  const res = await fetch("https://morning-mountain-4570.fly.dev/available-spots");
   const areaData = await res.json();
   return {
     props: { areaData },

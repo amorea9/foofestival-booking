@@ -15,7 +15,7 @@ function step4(props) {
 
   // BUTTONS - send reservation request & reroute
   async function confirm() {
-    const request = await fetch("http://localhost:8080/fullfill-reservation", {
+    const request = await fetch("https://morning-mountain-4570.fly.dev/fullfill-reservation", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
