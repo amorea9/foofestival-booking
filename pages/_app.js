@@ -34,10 +34,6 @@ function MyApp({ Component, pageProps }) {
     // console.log("regular", tickReg);
     setOrderInfo({ ...orderInfo, regTickets: tickReg });
   }
-  // function totalTickets(){
-  //   let total = orderInfo.vipTickets + orderInfo.regTickets;
-  //   setOrderInfo({...orderInfo, totalTickets: total})
-  // }
 
   function updateVIPTickets(event) {
     let tickVIP = event;
@@ -74,8 +70,6 @@ function MyApp({ Component, pageProps }) {
     setUpPrice = 299;
     tentSize = "2-person tent";
   }
-
-  //console.log("order info", orderInfo);
 
   const selectArea = (e) => {
     setOrderInfo({
@@ -114,12 +108,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-
-// // FETCTHING AREA DATA
-// export async function getServerSideProps() {
-//   const res = await fetch("http://localhost:8080/available-spots");
-//   const areaData = await res.json();
-//   return {
-//     props: { areaData },
-//   };
-// }

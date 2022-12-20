@@ -1,5 +1,4 @@
 import React from "react";
-import InputPaymentInfo from "../../components/UI-components/InputPaymentInfo";
 import StepIndicator from "../../components/UI-components/StepIndicator";
 import OrderOverview from "../../components/OrderOverview";
 import MobileOrderOverview from "../../components/MobileOrderOverview";
@@ -16,7 +15,7 @@ function step4(props) {
 
   // BUTTONS - send reservation request & reroute
   async function confirm() {
-    const request = await fetch("http://localhost:8080/fullfill-reservation", {
+    const request = await fetch("https://morning-mountain-4570.fly.dev/fullfill-reservation", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

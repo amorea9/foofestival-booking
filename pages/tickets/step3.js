@@ -59,7 +59,7 @@ function step3(props) {
           <h5>We need some details about each person for the tickets.</h5>
 
           {guestsArray.map((_, i) => (
-            <Accordion allowZeroExpanded>
+            <Accordion allowZeroExpanded key={i}>
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>

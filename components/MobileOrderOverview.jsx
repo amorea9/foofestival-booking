@@ -98,8 +98,6 @@ function OrderOverview(props) {
           ) : (
             <h4>{grandTotal},-</h4>
           )}
-
-          {/* {props.orderInfo.greenCamping === false && props.orderInfo.tentService === false ? <h4>{grandTotal},-</h4> : null} */}
         </section>
       </div>
     </div>
