@@ -46,7 +46,7 @@ function step4(props) {
     }
   }
 
-  // BUTTONS - go to back previous page
+  // BUTTONS - go back to previous page
   function goBack() {
     router.push("/tickets/step3");
   }
@@ -152,7 +152,7 @@ function step4(props) {
         <button className="secondary" onClick={goBack}>
           Back
         </button>
-        <button className="primary" onClick={confirm}>
+        <button type="submit" className="primary" onClick={confirm}>
           Continue to payment →
         </button>
       </div>
